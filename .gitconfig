@@ -1,0 +1,11 @@
+[user]
+	email = jorgedil7@gmail.com
+	name = patz
+[color]
+	ui = true
+[push]
+	default = simple
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff

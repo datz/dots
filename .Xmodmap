@@ -1,0 +1,34 @@
+!
+! clear all
+!
+clear Shift
+clear Lock
+clear Control
+clear Mod1
+clear Mod2
+clear Mod3
+clear Mod4
+clear Mod5
+
+
+!
+! mapping
+! 
+
+add Shift = Shift_L Shift_R
+add Control = Caps_Lock Control_R Control_L
+add mod1 = Alt_L
+add mod2 = Num_Lock
+add mod4 = Super_L Super_R Hyper_L
+add mod5 = ISO_Level3_Shift Mode_switch
+
+
+keysym Alt_R = Mode_switch
+add mod3 = Mode_switch
+
+keycode 38 = a A aacute Aacute
+keycode 26 = e E eacute Eacute
+keycode 31 = i I iacute Iacute
+keycode 32 = o O oacute Oacute
+keycode  30 = u U uacute Uacute
+keycode 57 = n N ntilde Ntilde

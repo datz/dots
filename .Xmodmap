@@ -10,21 +10,18 @@ clear Mod3
 clear Mod4
 clear Mod5
 
-
-!
-! mapping
-! 
+keysym Escape = Caps_Lock
+keysym Alt_R = Mode_switch
+keysym Caps_Lock = Control_L
+keysym Control_L = Escape
 
 add Shift = Shift_L Shift_R
-add Control = Caps_Lock Control_R Control_L
+add Lock = Caps_Lock
+add Control = Control_L  Control_R
 add mod1 = Alt_L
 add mod2 = Num_Lock
 add mod4 = Super_L Super_R Hyper_L
 add mod5 = ISO_Level3_Shift Mode_switch
-
-
-keysym Alt_R = Mode_switch
-add mod3 = Mode_switch
 
 keycode 38 = a A aacute Aacute
 keycode 26 = e E eacute Eacute

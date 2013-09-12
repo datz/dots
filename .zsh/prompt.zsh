@@ -15,7 +15,7 @@ else
 	prompt_host=%{$fg_bold[white]%}@%{$reset_color$fg[yellow]%}$(hostname -s)
 fi
 
-common_fmt_prompt_pre="%{$fg[cyan]%}%n%{$fg_bold[white]%}${prompt_host}:%{$fg_bold[magenta]%}"
+common_fmt_prompt_pre="%{$fg[cyan]%}%n@%m%{$fg_bold[white]%}${prompt_host}:%{$fg_bold[magenta]%}"
 common_fmt_prompt_post="%{$fg[white]%}[%!]%{$fg_bold[white]%}%1(j. (%j%).)%{%(?.$fg_bold[green].$fg_bold[red])%}${prompt_arrow}%{$reset_color%} "
 common_fmt_post="%{$reset_color%}"$'\n╚'"${common_fmt_prompt_pre}%S ${common_fmt_prompt_post}"
 native_prompt="${common_fmt_prompt_pre}%~ ${common_fmt_prompt_post}"

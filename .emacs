@@ -71,14 +71,16 @@
 (set-background-color "#383838")
 
 
-
+;; paredit
+(add-hook 'clojure-mode-hook 'paredit-mode)
+(add-hook 'nrepl-mode-hook 'paredit-mode)
+(global-set-key [f7] 'paredit-mode)
 
 ;; nrepl
 (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (setq nrepl-popup-stacktraces nil)
 (add-to-list 'same-window-buffer-names "*nrepl*")
 (add-hook 'nrepl-mode-hook 'paredit-mode)
-
 ;; starts nrepl-hack-in with f9
 (global-set-key [f9] 'nrepl-jack-in)
 
@@ -91,3 +93,9 @@
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
+
+(setenv
+ "PATH"
+ (concat
+  "/home/patz/bin" ":"
+  (getenv "PATH")))

@@ -1,0 +1,40 @@
+autoload -Uz compinit && compinit
+zmodload zsh/complist
+
+zstyle ':completion:*' completer _complete _list _oldlist _expand _ignored _match _correct _approximate _prefix
+zstyle ':completion:*' menu select=long-list select=3        # Enable menu completion if 3 or more alternatives
+zstyle ':completion:*' list-colors $(dircolors)            # Use colors in the menu selection
+zstyle ':completion:*' glob 'yes'                # Expand globs when tab-completing
+zstyle ':completion:*:functions' ignored-patterns '_*'        # Ignore completion functions for unavailable commands
+zstyle ':completion:*' accept-exact '*(N)'            # Speed up path completion, by avoiding partial globs
+
+zstyle ':completion:*:complete:-command-::commands' ignored-patterns '*\~' # Don't complete backup files as executables
+zstyle ':completion:*' ignore-parents parent pwd        # Don't let ../<tab> match $PWD
+zstyle ':completion::*:(rm|vi):*' ignore-line true        # Don't match the same filenames multiple times
+
+setopt noautolist        # Disable completion list (skip right to completion menu)
+
+# Completion caching
+zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache
+
+# Expand partial paths
+zstyle ':completion:*' expand 'yes'
+zstyle ':completion:*' squeeze-slashes 'yes'
+
+zstyle ':completion::complete:*' '\' # Include non-hidden directories in globbed file completions
+
+# Use menuselection for pid completion
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
+
+#  tag-order 'globbed-files directories' all-files 
+zstyle ':completion::complete:*:tar:directories' file-patterns '*~.*(-/)'
+
+# Separate matches into groups
+zstyle ':completion:*:matches' group 'yes'
+
+# Describe each match group.
+zstyle ':completion:*:descriptions' format "%B---- %d%b"
+
+

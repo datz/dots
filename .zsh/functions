@@ -26,3 +26,4 @@ insert_sudo () {
 		zle -U "sudo "
 	fi
 }
+

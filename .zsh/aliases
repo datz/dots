@@ -9,7 +9,7 @@ alias u2d="yaourt -Syua"
 alias e="emacs -nw"
 
 ##ls, the common ones I use a lot shortened for rapid fire usage
-alias ls='ls -hG' #I like color
+alias ls='ls --color -hG' #I like color
 alias l='ls -lFh'     #size,show type,human readable
 alias ll='ls -alhG'
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable

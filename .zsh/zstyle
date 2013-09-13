@@ -8,6 +8,31 @@ zstyle ':completion:*' glob 'yes'                # Expand globs when tab-complet
 zstyle ':completion:*:functions' ignored-patterns '_*'        # Ignore completion functions for unavailable commands
 zstyle ':completion:*' accept-exact '*(N)'            # Speed up path completion, by avoiding partial globs
 
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:manuals.(^1*)' insert-sections true
+zstyle ':completion:*' verbose true
+
+
+zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) )'
+
+# With commands like rm, it's annoying if you keep getting offered the same
+# file multiple times. This fixes it. Also good for cp, et cetera..
+zstyle ':completion:*:rm:*' ignore-line yes
+zstyle ':completion:*:cp:*' ignore-line yes
+zstyle ':completion:*:vim:*' ignore-line yes
+zstyle ':completion:*:ls:*' ignore-line yes
+
+
+# Describe options in full
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+
+# Simulate spider's old abbrev-expand 3.0.5 patch 
+zstyle ':completion:*:history-words' stop verbose
+zstyle ':completion:*:history-words' remove-all-dups yes
+zstyle ':completion:*:history-words' list false
+
 zstyle ':completion:*:complete:-command-::commands' ignored-patterns '*\~' # Don't complete backup files as executables
 zstyle ':completion:*' ignore-parents parent pwd        # Don't let ../<tab> match $PWD
 zstyle ':completion::*:(rm|vi):*' ignore-line true        # Don't match the same filenames multiple times
@@ -33,8 +58,13 @@ zstyle ':completion::complete:*:tar:directories' file-patterns '*~.*(-/)'
 
 # Separate matches into groups
 zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*' group-name ''
 
 # Describe each match group.
 zstyle ':completion:*:descriptions' format "%B---- %d%b"
 
 
+zstyle ':completion:*' special-dirs true
+
+#corrections format
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'

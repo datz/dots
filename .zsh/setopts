@@ -3,6 +3,11 @@ setopt always_to_end
 setopt ZLE
 setopt multios
 setopt noautolist        # Disable completion list (skip right to completion menu)
+setopt automenu
+setopt nobashautolist
+setopt listambiguous
+setopt nomenucomplete 
+setopt menu_complete
 
 ###########
 # history #

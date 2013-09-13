@@ -4,7 +4,7 @@ promptinit
 colors
 
 
-zstyle :compinstall filename '/home/patz/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 zle -N forward-word-match
 zle -N backward-word-match

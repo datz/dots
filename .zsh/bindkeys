@@ -30,7 +30,16 @@ bindkey "\e[3~" delete-char
 
 bindkey "^A" beginning-of-line        # Ctrl-a
 bindkey "^E" end-of-line        # Ctrl-e
-bindkey "^X" insert-sudo        # Ctrl-Shift_R
+bindkey "^X" insert-sudo        # Ctrl-X
+
+bindkey '^i' expand-or-complete-prefix # completion in the middle of a line
 
 
 bindkey '\C-x\C-e' edit-command-line
+
+
+bindkey "^[[1;5C" emacs-forward-word
+bindkey "\e[5D" backward-word
+bindkey "^[[1;5D" emacs-backward-word
+bindkey "\e\e[C" forward-word
+bindkey "\e\e[D" backward-word

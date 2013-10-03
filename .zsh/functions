@@ -27,3 +27,13 @@ insert_sudo () {
 	fi
 }
 
+
+function show_file {
+	if [ -f $1 ]; then
+		if [ $LINES -gt `wc -l $1 | awk '{print $1}'` ]; then
+			cat $1
+		else
+			less $1
+		fi
+	fi
+}

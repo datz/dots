@@ -16,6 +16,8 @@ alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
 
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 ##cd, because typing the backslash is ALOT of work!!
 alias pd='popd'
 alias ..='cd ../'
@@ -30,3 +32,6 @@ alias -g S='&> /dev/null &'
 alias -s {clj,el}="emacs -nw"
 alias -s {html,xml}="google-chrome"
 alias -s {README,md,txt}="show_file"
+
+
+

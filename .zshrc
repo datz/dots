@@ -1,5 +1,6 @@
-autoload -Uz compinit promptinit colors insert-sudo
-compinit
+autoload -Uz compinit promptinit colors insert-sudo edit-command-line
+
+ compinit
 promptinit
 colors
 
@@ -26,3 +27,4 @@ source ~/.zsh/prompt.zsh
 source ~/.zsh/aliases
 source ~/.zsh/setopts
 source ~/.zsh/zstyle
+

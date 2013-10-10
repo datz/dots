@@ -25,11 +25,11 @@ export  LSCOLORS="ExGxFxDxCxDxDxhbhdacEc";
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 
-source ~/.zsh/functions
-source ~/.zsh/bindkeys
-source ~/.zsh/exports
+source ~/.zsh/functions.zsh
+source ~/.zsh/bindkeys.zsh
+source ~/.zsh/exports.zsh
 source ~/.zsh/prompt.zsh
-source ~/.zsh/aliases
+source ~/.zsh/aliases.zsh
 source ~/.zsh/setopts
 source ~/.zsh/zstyle
 

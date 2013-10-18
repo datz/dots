@@ -1,9 +1,18 @@
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
 (global-set-key "\C-cd" 'kill-whole-line)
+(global-set-key (kbd "C-x O") 'previous-multiframe-window)
 
 ;; RETURN is now newline and ident!
 (add-hook 'lisp-mode-hook '(lambda ()
       (local-set-key (kbd "RET") 'newline-and-indent)))
 
+(require 'tramp)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -69,7 +78,7 @@
 ;; My own preference. Change or comment out the following lines if you like.
 (load-theme 'deeper-blue t)
 (set-background-color "#383838")
-
+(set-face-background 'region "yellow")
 
 ;; paredit
 (add-hook 'clojure-mode-hook 'paredit-mode)
@@ -81,6 +90,7 @@
 (setq nrepl-popup-stacktraces nil)
 (add-to-list 'same-window-buffer-names "*nrepl*")
 (add-hook 'nrepl-mode-hook 'paredit-mode)
+
 ;; starts nrepl-hack-in with f9
 (global-set-key [f9] 'nrepl-jack-in)
 
@@ -94,8 +104,9 @@
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
 
-(setenv
- "PATH"
- (concat
-  "/home/patz/bin" ":"
-  (getenv "PATH")))
+
+;;set path
+(setenv "PATH"
+        (concat
+         "/home/patz/bin" ":"
+         (getenv "PATH")))

@@ -1,6 +1,8 @@
+[[ $EMACS = t ]] && unsetopt zle
+
 autoload -Uz compinit promptinit colors insert-sudo edit-command-line
 
- compinit
+compinit
 promptinit
 colors
 

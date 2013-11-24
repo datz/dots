@@ -23,6 +23,6 @@ setopt hist_verify
 ##########
 # safety #
 ##########
-setopt rm_star_wait # Wait 10 seconds before executing "rm *"
+#setopt rm_star_wait # Wait 10 seconds before executing "rm *"
 setopt noclobber # Require '>!' to overwrite existing files
 setopt correctall

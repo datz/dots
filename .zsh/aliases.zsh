@@ -34,4 +34,3 @@ alias -s {html,xml}="google-chrome"
 alias -s {README,md,txt}="show_file"
 
 
-alias rm='saferm'

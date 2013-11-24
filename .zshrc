@@ -1,6 +1,6 @@
 autoload -Uz compinit promptinit colors insert-sudo edit-command-line
 
- compinit
+compinit
 promptinit
 colors
 
@@ -33,3 +33,5 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/setopts
 source ~/.zsh/zstyle
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

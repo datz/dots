@@ -1,5 +1,6 @@
 alias p="sudo pacman -S"
 alias y="yaourt -S"
+alias yupdate="yaourt -Syua --noconfirm"
 alias runing="ps aux | grep"
 alias la="ls -a"
 alias -s ="cat"
@@ -30,7 +31,7 @@ alias -g L='|less'
 alias -g S='&> /dev/null &'
 
 alias -s {clj,el}="emacs -nw"
-alias -s {html,xml}="google-chrome"
+alias -s {html,xml}="chromium"
 alias -s {README,md,txt}="show_file"
 
 

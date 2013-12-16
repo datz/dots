@@ -35,4 +35,4 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/setopts
 source ~/.zsh/zstyle
 
-PATH=$PATH:/home/patz/.gem/ruby/2.0.0/bin
+PATH=$PATH:/home/patz/.gem/ruby/2.0.0/bin:$HOME/opt/storm-0.8.2/bin

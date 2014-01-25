@@ -6,7 +6,7 @@ alias la="ls -a"
 alias -s ="cat"
 alias fptz="ssh fptz"
 alias kvimclj="ps aux | grep -v grep | grep vimclojure | awk '{print \$2}' | xargs kill"
-alias u2d="yaourt -Syua"
+alias u2d="yaourt -Syua --noconfirm"
 alias e="emacs -nw"
 
 ##ls, the common ones I use a lot shortened for rapid fire usage

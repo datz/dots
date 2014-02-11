@@ -37,5 +37,5 @@ source ~/.zsh/zstyle
 
 PATH=$PATH:/home/patz/.gem/ruby/2.0.0/bin:$HOME/opt/storm-0.8.2/bin
 
-PATH=$PATH:/home/patz/.gem/ruby/2.0.0/bin # ruby on path
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/home/patz/.gem/ruby/2.1.0/bin

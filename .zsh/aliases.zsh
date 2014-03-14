@@ -8,6 +8,7 @@ alias fptz="ssh fptz"
 alias kvimclj="ps aux | grep -v grep | grep vimclojure | awk '{print \$2}' | xargs kill"
 alias u2d="yaourt -Syua"
 alias e="emacs -nw"
+alias se="sudo emacs -nw"
 
 ##ls, the common ones I use a lot shortened for rapid fire usage
 alias ls='ls --color -hG' #I like color

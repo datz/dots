@@ -24,9 +24,12 @@
  '(backup-inhibited t t)
  '(cursor-type 'bar t)
  '(column-number-mode t)
+ '(cursor-type (quote bar) t)
+ '(custom-safe-themes (quote ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(delete-selection-mode t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
+ '(show-paren-mode t)
  '(tool-bar-mode nil))
 
 
@@ -52,6 +55,10 @@
 (package-initialize)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+
+;; elscreen
+(elscreen-start)
 
 ;; rainbow delimiters
 (global-rainbow-delimiters-mode)
@@ -104,6 +111,77 @@
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
 
+(setenv
+ "PATH"
+ (concat
+  "/home/patz/bin" ":"
+  (getenv "PATH")))
+
+;; resize window
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+
+;; kibit (https://github.com/jonase/kibit)
+
+;; Teach compile the syntax of the kibit output
+(require 'compile)
+(add-to-list 'compilation-error-regexp-alist-alist
+         '(kibit "At \\([^:]+\\):\\([[:digit:]]+\\):" 1 2 nil 0))
+(add-to-list 'compilation-error-regexp-alist 'kibit)
+
+;; A convenient command to run "lein kibit" in the project to which
+;; the current emacs buffer belongs to.
+(defun kibit ()
+  "Run kibit on the current project.
+Display the results in a hyperlinked *compilation* buffer."
+  (interactive)
+  (compile "lein kibit"))
+
+(defun kibit-current-file ()
+  "Run kibit on the current file.
+Display the results in a hyperlinked *compilation* buffer."
+  (interactive)
+  (compile (concat "lein kibit " buffer-file-name)))
+
+
+;; Move with Shift+{left,up,down,right}
+(windmove-default-keybindings)
+(setq windmove-wrap-around t)
+
+
+;; LaTeX
+
+;;(load "auctex.el" nil t t)
+;;(load "preview-latex.el" nil t t)
+;;  
+;;  (add-hook 'Latex-mode-hook 'ac-l-setup)
+;;  
+;;  (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; Activar reftex con AucTex
+;;  (setq reftex-plug-intoAUCTeX t) ; Conectar a AUC TeX con RefTeX
+;;  (add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
+;;  (setq latex-run-command "pdflatex")
+;;  V
+
+(put 'downcase-region 'disabled nil)
+
+;; ask before closing
+
+(defun ask-before-closing ()
+  "Ask whether or not to close, and then close if y was pressed"
+  (interactive)
+  (if (y-or-n-p (format "Are you sure you want to exit Emacs? "))
+      (if (< emacs-major-version 22)
+          (save-buffers-kill-terminal)
+        (save-buffers-kill-emacs))
+    (message "Canceled exit")))
+
+(global-set-key (kbd "C-x C-c") 'ask-before-closing)
+
+
+(menu-bar-mode -1)
 
 ;;set path
 (setenv "PATH"

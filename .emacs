@@ -218,3 +218,17 @@ Display the results in a hyperlinked *compilation* buffer."
 
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
+
+
+
+;; autofill
+
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+;;; LaTeX
+
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex) ;; Acticar reftex con AucTeX
+(setq reftex-plug-into-AUCTeX t) ; Conectar a AUC TeX con RefTeX
+(setq TeX-default-mode 'LaTeX-mode)
+(setq TeX-force-default-mode t)
+(setq TeX-electric-escape t)

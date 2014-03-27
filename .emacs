@@ -1,8 +1,8 @@
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+          '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+          '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 (global-set-key "\C-cd" 'kill-whole-line)
@@ -10,9 +10,17 @@
 
 ;; RETURN is now newline and ident!
 (add-hook 'lisp-mode-hook '(lambda ()
-      (local-set-key (kbd "RET") 'newline-and-indent)))
+     (local-set-key (kbd "RET") 'newline-and-indent)))
 
 (require 'tramp)
+
+(require 'multiple-cursors)
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -39,12 +47,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t
-             (:family "Inconsolata"
-                      :foundry "unknown"
-                      :slant normal
-                      :weight normal
-                      :height 107
-                      :width normal)))))
+          (:family "Inconsolata"
+                 :foundry "unknown"
+                 :slant normal
+                 :weight normal
+                 :height 107
+                 :width normal)))))
 (setq-default inhibit-startup-screen t)
 
 ;; Of course, don't uncomment the line below -- doing so would
@@ -54,7 +62,7 @@
 
 (package-initialize)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+          '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
 ;; elscreen
@@ -72,8 +80,8 @@
 
 ;; Display full pathname for files.
 (add-hook 'find-file-hooks
-          '(lambda ()
-             (setq mode-line-buffer-identification 'buffer-file-truename)))
+        '(lambda ()
+          (setq mode-line-buffer-identification 'buffer-file-truename)))
 
 ;; For easy window scrolling up and down.
 (global-set-key "\M-n" 'scroll-up-line)
@@ -97,7 +105,6 @@
 (setq nrepl-popup-stacktraces nil)
 (add-to-list 'same-window-buffer-names "*nrepl*")
 (add-hook 'nrepl-mode-hook 'paredit-mode)
-
 ;; starts nrepl-hack-in with f9
 (global-set-key [f9] 'nrepl-jack-in)
 
@@ -129,7 +136,7 @@
 ;; Teach compile the syntax of the kibit output
 (require 'compile)
 (add-to-list 'compilation-error-regexp-alist-alist
-         '(kibit "At \\([^:]+\\):\\([[:digit:]]+\\):" 1 2 nil 0))
+       '(kibit "At \\([^:]+\\):\\([[:digit:]]+\\):" 1 2 nil 0))
 (add-to-list 'compilation-error-regexp-alist 'kibit)
 
 ;; A convenient command to run "lein kibit" in the project to which
@@ -173,18 +180,41 @@ Display the results in a hyperlinked *compilation* buffer."
   "Ask whether or not to close, and then close if y was pressed"
   (interactive)
   (if (y-or-n-p (format "Are you sure you want to exit Emacs? "))
-      (if (< emacs-major-version 22)
-          (save-buffers-kill-terminal)
-        (save-buffers-kill-emacs))
-    (message "Canceled exit")))
+     (if (< emacs-major-version 22)
+        (save-buffers-kill-terminal)
+      (save-buffers-kill-emacs))
+   (message "Canceled exit")))
 
 (global-set-key (kbd "C-x C-c") 'ask-before-closing)
 
 
 (menu-bar-mode -1)
 
-;;set path
-(setenv "PATH"
-        (concat
-         "/home/patz/bin" ":"
-         (getenv "PATH")))
+;; cider-error with cider-mode
+(add-hook 'cider-popup-buffer-mode-hook 'cider-mode)
+
+;; hide special buffers 
+(setq nrepl-hide-special-buffers t)
+
+;; Stop the error buffer from popping up while working in buffers other than the REPL:
+(setq cider-popup-stacktraces nil)
+
+;; Limit the number of items of each collection the printer will print to 100:
+(setq cider-repl-print-length 100)
+
+;; Prevent C-c C-k from prompting to save the file corresponding to the buffer being loaded, if it's modified:
+(setq cider-prompt-save-file-on-load nil)
+
+;; To make the REPL history wrap around when its end is reached:
+(setq cider-repl-wrap-history t)
+
+;;To adjust the maximum number of items kept in the REPL history:
+(setq cider-repl-history-size 1000) ; the default is 500
+
+;;To store the REPL history in a file:
+(setq cider-repl-history-file "~/.emacs_repl_history")
+
+(add-hook 'Clojure 'rainbow-delimiters-mode)
+
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+

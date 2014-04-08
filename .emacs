@@ -23,7 +23,11 @@ Return a list of installed packages or nil for every skipped package."
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
-(apply 'ensure-package-installed package-activated-list) ;  --> (nil nil) if iedit and magit are already installed
+
+(apply 'ensure-package-installed
+       '(ac-cider-compliment ac-math ac-nrepl auctex auto-complete cider clj-refactor clojure-mode elscreen
+         fold-this latex-extra magit multiple-cursors nrepl paredit rainbow-delimiters slamhound solarized-theme
+         yaml-mode yasnippet)) ;  --> (nil nil) if iedit and magit are already installed
 
 ;; activate installed packages
 (package-initialize)

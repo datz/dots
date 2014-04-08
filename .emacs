@@ -51,7 +51,7 @@
                  :foundry "unknown"
                  :slant normal
                  :weight normal
-                 :height 107
+                 :height 137
                  :width normal)))))
 (setq-default inhibit-startup-screen t)
 
@@ -59,10 +59,6 @@
 ;; stop Emacs from helpfully leaving "foo~" (backup) files all
 ;; over the place.
 ;(setq make-backup-files nil)
-
-(package-initialize)
-(add-to-list 'package-archives
-          '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
 ;; elscreen
@@ -191,19 +187,19 @@ Display the results in a hyperlinked *compilation* buffer."
 (menu-bar-mode -1)
 
 ;; cider-error with cider-mode
-(add-hook 'cider-popup-buffer-mode-hook 'cider-mode)
+;; (add-hook 'cider-popup-buffer-mode-hook 'cider-mode)
 
 ;; hide special buffers 
 (setq nrepl-hide-special-buffers t)
 
 ;; Stop the error buffer from popping up while working in buffers other than the REPL:
-(setq cider-popup-stacktraces nil)
+;; (setq cider-popup-stacktraces nil)
 
 ;; Limit the number of items of each collection the printer will print to 100:
 (setq cider-repl-print-length 100)
 
 ;; Prevent C-c C-k from prompting to save the file corresponding to the buffer being loaded, if it's modified:
-(setq cider-prompt-save-file-on-load nil)
+;; (setq cider-prompt-save-file-on-load nil)
 
 ;; To make the REPL history wrap around when its end is reached:
 (setq cider-repl-wrap-history t)
@@ -218,3 +214,10 @@ Display the results in a hyperlinked *compilation* buffer."
 
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
+
+
+(require 'clj-refactor)
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (clj-refactor-mode 1)
+            (cljr-add-keybindings-with-prefix "C-c C-m")))

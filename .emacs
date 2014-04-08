@@ -221,3 +221,12 @@ Display the results in a hyperlinked *compilation* buffer."
           (lambda ()
             (clj-refactor-mode 1)
             (cljr-add-keybindings-with-prefix "C-c C-m")))
+;; autofill
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;;; LaTeX
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex) ;; Acticar reftex con AucTeX
+(setq reftex-plug-into-AUCTeX t) ; Conectar a AUC TeX con RefTeX
+(setq TeX-default-mode 'LaTeX-mode)
+(setq TeX-force-default-mode t)
+(setq TeX-electric-escape t)
+>>>>>>> 6dc2bbbd673edc4fecc5cddb2b2121fddafbb40e

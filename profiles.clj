@@ -7,7 +7,7 @@
                        [im.chit/vinyasa "0.1.8"]]
         :injections [(require 'vinyasa.inject)
                      (vinyasa.inject/inject 'clojure.core '>
-                       '[[clojure.repl doc source]
+                       '[[clojure.repl doc find-doc source]
                          [clojure.pprint pprint pp]])]
         :aliases {"slamhound" ["run" "-m" "slam.hound"]}
         }

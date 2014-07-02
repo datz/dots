@@ -35,7 +35,11 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/setopts
 source ~/.zsh/zstyle
 
+EDITOR="emacs -nw"
+
 PATH=$PATH:/home/patz/.gem/ruby/2.0.0/bin:$HOME/opt/storm-0.8.2/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/home/patz/.gem/ruby/2.1.0/bin
+PATH=$PATH:/opt/storm/bin
+PATH=$HOME/bin:$PATH

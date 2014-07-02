@@ -11,3 +11,5 @@
 	tool = vimdiff
 [alias]
 	add-commit = !git push add -A && git commit
+[core]
+	excludesfile = ~/.gitignore

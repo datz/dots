@@ -36,3 +36,4 @@ alias -s {html,xml}="chromium"
 alias -s {README,md,txt}="show_file"
 
 
+alias skype='xhost +local: && sudo -u skype /usr/bin/skype skype --disable-cleanlooks'

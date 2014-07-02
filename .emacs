@@ -4,6 +4,10 @@
 (add-to-list 'package-archives
           '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
+;; activate installed packages
+(package-initialize)
+
+
 (defun ensure-package-installed (&rest packages)
   "Assure every package is installed, ask for installation if it’s not.
 
@@ -29,8 +33,6 @@ Return a list of installed packages or nil for every skipped package."
          fold-this latex-extra magit multiple-cursors nrepl paredit rainbow-delimiters slamhound solarized-theme
          yaml-mode yasnippet)) ;  --> (nil nil) if iedit and magit are already installed
 
-;; activate installed packages
-(package-initialize)
 
 (global-set-key "\C-cd" 'kill-whole-line)
 (global-set-key (kbd "C-x O") 'previous-multiframe-window)
@@ -125,6 +127,7 @@ Return a list of installed packages or nil for every skipped package."
 
 ;; nrepl
 (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+(add-hook 'nrepl-repl-mode-hook 'paredit-mode)
 (setq nrepl-popup-stacktraces nil)
 (add-to-list 'same-window-buffer-names "*nrepl*")
 (add-hook 'nrepl-mode-hook 'paredit-mode)
@@ -135,9 +138,11 @@ Return a list of installed packages or nil for every skipped package."
 (require 'auto-complete-config)
 (ac-config-default)
 (define-key ac-completing-map "\M-/" 'ac-stop) ; use M-/ to stop completion
+
 ;; ac-nrepl
 (require 'ac-nrepl)
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
 
@@ -214,13 +219,13 @@ Display the results in a hyperlinked *compilation* buffer."
 (menu-bar-mode -1)
 
 ;; cider-error with cider-mode
-;; (add-hook 'cider-popup-buffer-mode-hook 'cider-mode)
+ (add-hook 'cider-popup-buffer-mode-hook 'cider-mode)
 
 ;; hide special buffers 
-(setq nrepl-hide-special-buffers t)
+ (setq nrepl-hide-special-buffers t)
 
 ;; Stop the error buffer from popping up while working in buffers other than the REPL:
-;; (setq cider-popup-stacktraces nil)
+ (setq cider-popup-stacktraces nil)
 
 ;; Limit the number of items of each collection the printer will print to 100:
 (setq cider-repl-print-length 100)
@@ -240,6 +245,7 @@ Display the results in a hyperlinked *compilation* buffer."
 (add-hook 'Clojure 'rainbow-delimiters-mode)
 
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'cider-repl-mode-hook 'paredit)
 
 
 
@@ -250,7 +256,9 @@ Display the results in a hyperlinked *compilation* buffer."
             (cljr-add-keybindings-with-prefix "C-c C-m")))
 ;; autofill
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
+
 ;;; LaTeX
+
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ;; Acticar reftex con AucTeX
 (setq reftex-plug-into-AUCTeX t) ; Conectar a AUC TeX con RefTeX
 (setq TeX-default-mode 'LaTeX-mode)

@@ -10,13 +10,13 @@
                        '[[clojure.repl doc find-doc source]
                          [clojure.pprint pprint pp]])]
         :aliases {"slamhound" ["run" "-m" "slam.hound"]}
-         :repl-options 
-       {:nrepl-middleware 
-          [cider.nrepl.middleware.classpath/wrap-classpath 
-           cider.nrepl.middleware.complete/wrap-complete 
-           cider.nrepl.middleware.info/wrap-info 
-           cider.nrepl.middleware.inspect/wrap-inspect 
-           cider.nrepl.middleware.stacktrace/wrap-stacktrace 
+         :repl-options
+       {:nrepl-middleware
+          [cider.nrepl.middleware.classpath/wrap-classpath
+           cider.nrepl.middleware.complete/wrap-complete
+           cider.nrepl.middleware.info/wrap-info
+           cider.nrepl.middleware.inspect/wrap-inspect
+           cider.nrepl.middleware.stacktrace/wrap-stacktrace
            cider.nrepl.middleware.trace/wrap-trace
            ]}
         }

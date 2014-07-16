@@ -41,3 +41,8 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (add-hook 'magit-status-mode-hook 'magit-filenotify-mode )
+
+;transparency
+(set-frame-parameter (selected-frame) 'alpha '(95 90))
+; no menu bar
+(menu-bar-mode 0)

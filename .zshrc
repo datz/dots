@@ -35,7 +35,7 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/setopts
 source ~/.zsh/zstyle
 
-EDITOR="emacs -nw"
+EDITOR="emacs -nw -q"
 
 PATH=$PATH:/home/patz/.gem/ruby/2.0.0/bin:$HOME/opt/storm-0.8.2/bin
 

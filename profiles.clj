@@ -1,7 +1,7 @@
 {
  :user {:plugins [[lein-kibit "0.0.8"]
                   [jonase/eastwood "0.1.4"]
-                  [cider/cider-nrepl "0.7.0-SNAPSHOT"]
+                  [cider/cider-nrepl "0.8.0-SNAPSHOT"]
                   ]
         :dependencies [[slamhound "1.5.1"]
                        [im.chit/vinyasa "0.1.8"]]
@@ -12,12 +12,12 @@
         :aliases {"slamhound" ["run" "-m" "slam.hound"]}
         :repl-options
         {:nrepl-middleware
-         [cider.nrepl.middleware.classpath/wrap-classpath
-          cider.nrepl.middleware.complete/wrap-complete
-          cider.nrepl.middleware.info/wrap-info
-          cider.nrepl.middleware.inspect/wrap-inspect
-          cider.nrepl.middleware.stacktrace/wrap-stacktrace
-          cider.nrepl.middleware.trace/wrap-trace
-          ]}
+          [cider.nrepl.middleware.classpath/wrap-classpath
+           cider.nrepl.middleware.complete/wrap-complete
+           cider.nrepl.middleware.info/wrap-info
+           cider.nrepl.middleware.inspect/wrap-inspect
+           cider.nrepl.middleware.stacktrace/wrap-stacktrace
+           cider.nrepl.middleware.trace/wrap-trace
+           ]}
         }
  }

@@ -6,7 +6,7 @@
 
 (cljr-add-keybindings-with-prefix "C-c C-m")
 
-(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
 ;(setq nrepl-popup-stacktraces true)
 ;(add-to-list 'same-window-buffer-names "<em>nrepl</em>")
@@ -16,17 +16,29 @@
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
 ;; ac-nrepl (Auto-complete for the nREPL)
-(require 'ac-nrepl)
-(add-hook 'cider-mode-hook 'ac-nrepl-setup)
-(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-(add-to-list 'ac-modes 'cider-mode)
-(add-to-list 'ac-modes 'cider-repl-mode)
+(require 'ac-cider)
+(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+(add-hook 'cider-mode-hook 'ac-cider-setup)
+(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'cider-mode))
 
-;; cider config
+(defun set-auto-complete-as-completion-at-point-function ()
+  (setq completion-at-point-functions '(auto-complete)))
 
+(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+;;;;;;;;;;;;;;;;;;
+;; cider config ;;
+;;;;;;;;;;;;;;;;;;
 ;(setq nrepl-hide-special-buffers t)
 
-;; dont show error buffer
+(defun set-auto-complete-as-completion-at-point-function ()
+  (setq completion-at-point-functions '(auto-complete)))
+
+(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function);; dont show error buffer
 (setq cider-show-error-buffer nil)
 
 ;Enable error buffer popping also in the REPL:
@@ -50,7 +62,7 @@
 (setq cider-repl-history-file "/home/patz/.repl_history")
 
 
-;; kibit 
+;; kibit
 
 ;; kibit (https://github.com/jonase/kibit)
 
@@ -73,3 +85,5 @@ Display the results in a hyperlinked *compilation* buffer."
 Display the results in a hyperlinked *compilation* buffer."
   (interactive)
   (compile (concat "lein kibit " buffer-file-name)))
+
+(setq inferior-lisp-program "browser-repl")

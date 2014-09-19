@@ -12,7 +12,7 @@
 
 (load-file "~/.emacs.conf/init_keybinding.el")
 
-(load-file "~/.emacs.conf/emacs_latex.el")
+;; (load-file "~/.emacs.conf/emacs_latex.el")
 
 ;; Show parenthesis mode
 (show-paren-mode 1)
@@ -21,7 +21,9 @@
 (global-rainbow-delimiters-mode)
 
 ;; Noctilus Theme
-(load-theme 'noctilux t)
+;; (load-theme 'noctilux t)
+
+(load-theme 'zenburn t)
 
 ;; elscreen
 (elscreen-start)
@@ -69,3 +71,20 @@
 (setenv "PATH" (concat (getenv "PATH") ":~/bin"))
 (setq exec-path (append exec-path '("~/bin")))
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
+
+;;;;;; grunt. experimental ;;;;;;;;
+
+(defun grunt-test-e2e ()
+  "Run grunt test e2e"
+  (interactive)
+  (let* ((grunt-buffer (get-buffer-create "*grunt*"))
+        (result (call-process-shell-command "grunt test:e2e" ))
+        (output (with-current-buffer grunt-buffer (buffer-string))))
+    (cond ((zerop result)
+           (message "Grunt completed without errors"))
+          (t
+           (message nil)
+           (split-window-vertically)
+           (set-window-buffer (next-window) grunt-buffer)))))

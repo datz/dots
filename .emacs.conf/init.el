@@ -73,3 +73,6 @@
      (define-key coffee-mode-map (kbd "C-j") 'coffee-newline-and-indent)))
 
 (setenv "EDITOR" "emacsclient")
+
+
+(defun fmongo () (interactive) (inf-mongo "mongo fractal3.fractal-ware.com,fractal1.fractal-ware.com,fractal2.fractal-ware.com/fractal -u fractal  -p 5jceHqRY"))

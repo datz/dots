@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/patz/src/wkml-dash/test'
+let g:netrw_dirhist_2='/home/patz/src/fb/results'
+let g:netrw_dirhist_3='/home/patz/wkml-apps/Castellana/Fractal'
+let g:netrw_dirhist_4='/home/patz/Downloads/Fractal (1)/Fractal/Fractal'

@@ -24,7 +24,6 @@ export  LSCOLORS="ExGxFxDxCxDxDxhbhdacEc";
 
 # Grep options
 #
-export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 
 source ~/.zsh/functions.zsh
@@ -43,3 +42,10 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/home/patz/.gem/ruby/2.1.0/bin
 PATH=$PATH:/opt/storm/bin
 PATH=$HOME/bin:$PATH
+
+export CHROME_BIN=google-chrome-stable
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS

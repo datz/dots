@@ -16,12 +16,12 @@
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
 ;; ac-nrepl (Auto-complete for the nREPL)
-(require 'ac-cider)
-(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-(add-hook 'cider-mode-hook 'ac-cider-setup)
-(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-mode))
+;; (require 'ac-cider)
+;; (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+;; (add-hook 'cider-mode-hook 'ac-cider-setup)
+;; (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+;; (eval-after-load "auto-complete"
+;;  '(add-to-list 'ac-modes 'cider-mode))
 
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions '(auto-complete)))
@@ -53,6 +53,9 @@
 ;; Poping-up contextual documentation
 (eval-after-load "cider"
   '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
+
+;; Make C-c C-z switch to the CIDER REPL buffer in the current window:
+(setq cider-repl-display-in-current-window t)
 
 ;; history
 (setq cider-repl-wrap-history t)
@@ -87,3 +90,9 @@ Display the results in a hyperlinked *compilation* buffer."
   (compile (concat "lein kibit " buffer-file-name)))
 
 (setq inferior-lisp-program "browser-repl")
+
+;; for classes and methos
+(add-hook 'cider-repl-mode-hook 'subword-mode)
+
+;; rainbow delimiters
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)

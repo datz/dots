@@ -1,10 +1,10 @@
 (load-file "~/.emacs.conf/init.el")
 
 ;; General Auto-Complete
-(require 'auto-complete-config)
-(setq ac-delay 0.0)
-(setq ac-quick-help-delay 0.5)
-(ac-config-default)
+;; (require 'auto-complete-config)
+;; (setq ac-delay 0.0)
+;; (setq ac-quick-help-delay 0.5)
+;; (ac-config-default)
 
 (load-file "~/.emacs.conf/emacs_clojure.el")
 
@@ -18,13 +18,15 @@
 (show-paren-mode 1)
 
 ;; rainbow delimiters
-(global-rainbow-delimiters-mode)
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+
 
 ;; Noctilus Theme
-;; (load-theme 'noctilux t)
+(load-theme 'noctilux t)
 
-(load-theme 'zenburn t)
-
+;; (load-theme 'zenburn t)
 ;; elscreen
 (elscreen-start)
 
@@ -56,11 +58,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(cider-repl-use-clojure-font-lock t)
+ '(coffee-tab-width 2)
  '(column-number-mode t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p t)
  '(show-paren-mode t)
  '(tool-bar-mode nil))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -88,3 +95,36 @@
            (message nil)
            (split-window-vertically)
            (set-window-buffer (next-window) grunt-buffer)))))
+
+;; js
+
+
+(add-to-list 'auto-mode-alist '("\\.js" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.html" . web-mode))
+
+;; easy spell check
+(global-set-key (kbd "<f8>") 'ispell-word)
+(global-set-key (kbd "C-S-<f8>") 'flyspell-mode)
+(global-set-key (kbd "C-M-<f8>") 'flyspell-buffer)
+(global-set-key (kbd "C-<f8>") 'flyspell-check-previous-highlighted-word)
+(defun flyspell-check-next-highlighted-word ()
+  "Custom function to spell check next highlighted word"
+  (interactive)
+  (flyspell-goto-next-error)
+  (ispell-word)
+  )
+(global-set-key (kbd "M-<f8>") 'flyspell-check-next-highlighted-word)
+
+
+;; tabs
+
+(setq-default indent-tabs-mode nil)
+
+(setq tab-width 2) ; or any other preferred value
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+
+
+;; company-mode 4 all
+(add-hook 'after-init-hook 'global-company-mode)
+(global-company-mode)

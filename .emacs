@@ -26,6 +26,8 @@
 ;; Noctilus Theme
 (load-theme 'noctilux t)
 
+(set-face-attribute 'default nil :font "Andale Mono-11")
+
 ;; (load-theme 'zenburn t)
 ;; elscreen
 (elscreen-start)

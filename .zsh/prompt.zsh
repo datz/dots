@@ -58,8 +58,8 @@ PROMPT='${vcs_info_msg_0_}'
  
 setopt transient_rprompt #remove rprompt after enter
 if type test >/dev/null && acpi -b 2>/dev/null | grep 'Battery 0' >/dev/null; then
-        RPROMPT='[$(acpi -b | sed "s/.* \([0-9]\+\)%.*/\1/")%%] '"%(?.%{$fg_bold[green]%}✔.%{$fg_bold[red]%}✘)%{$reset_color%}"
+        RPROMPT='[$(acpi -b | sed "s/.* \([0-9]\+\)%.*/\1/")%%] '"%(?.%{$fg_bold[green]%}:).%{$fg_bold[red]%}✘)%{$reset_color%}"
 else
-        RPROMPT="%(?.%{$fg_bold[green]%}✔.%{$fg_bold[red]%}✘)%{$reset_color%}"
+        RPROMPT="%(?.%{$fg_bold[green]%}:).%{$fg_bold[red]%}:()%{$reset_color%}"
 fi
 SPROMPT="zsh: correct %R to %r? ([Y]es/[No]/[E]dit/[A]bort) "

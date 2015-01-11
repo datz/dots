@@ -1,8 +1,9 @@
 {
- :user {:plugins [[lein-kibit "0.0.8"]
-                  [jonase/eastwood "0.1.4"]
-                  [cider/cider-nrepl "0.8.2-SNAPSHOT"]
-                  ]
+ :user {:global-vars {*print-length* 100}
+        :plugins [[lein-kibit "0.0.8"]
+                                  [jonase/eastwood "0.1.4"]
+                                  [cider/cider-nrepl "0.9.0-SNAPSHOT"]
+                                  ]
         :dependencies [[slamhound "1.5.1"]
                        [im.chit/vinyasa "0.1.8"]]
         :injections [(require 'vinyasa.inject)

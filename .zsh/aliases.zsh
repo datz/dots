@@ -9,6 +9,8 @@ alias kvimclj="ps aux | grep -v grep | grep vimclojure | awk '{print \$2}' | xar
 alias u2d="yaourt -Syua --noconfirm"
 alias e="emacs -nw"
 alias se="sudo emacs -nw"
+alias sf="show_file"
+alias maxram="ps aux --sort -rss"
 
 ##ls, the common ones I use a lot shortened for rapid fire usage
 alias ls='ls --color -hG' #I like color

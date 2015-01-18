@@ -19,7 +19,6 @@
 
 ;; rainbow delimiters
 (require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 
 
@@ -142,3 +141,12 @@
   '(progn
      (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
      (define-key coffee-mode-map (kbd "C-j") 'coffee-newline-and-indent)))
+
+
+;; emmet
+
+(add-hook 'html-mode-hook 'emmet-mode) ;; Auto-start on
+
+(add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2))) ;; indent 2 spaces.
+
+(setq emmet-move-cursor-between-quotes t) ;; move to first empty quotes

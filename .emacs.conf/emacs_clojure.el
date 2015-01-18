@@ -1,38 +1,45 @@
-(require 'clj-refactor)
+;;;;;;;;;;;;;;;;;;
+;; clojure-mode ;;
+;;;;;;;;;;;;;;;;;;
 
+;; clj-refactor
+(require 'clj-refactor)
 (add-hook 'clojure-mode-hook (lambda ()
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-m")))
 
 (cljr-add-keybindings-with-prefix "C-c C-m")
 
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(put-clojure-indent '-> 1)
+(put-clojure-indent '->> 1)
 
-;(setq nrepl-popup-stacktraces true)
-;(add-to-list 'same-window-buffer-names "<em>nrepl</em>")
 
 ;; paredit
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
-;; ac-nrepl (Auto-complete for the nREPL)
-;; (require 'ac-cider)
-;; (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-;; (add-hook 'cider-mode-hook 'ac-cider-setup)
-;; (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
-;; (eval-after-load "auto-complete"
-;;  '(add-to-list 'ac-modes 'cider-mode))
+;; yas
+(add-hook 'clojure-mode-hook 'yas-minor-mode)
+
+;; smartparents
+;;(add-hook 'clojure-mode-hook #'smartparens-strict-mode)
+
+;; rainbow delimiters
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions '(auto-complete)))
 
-(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
+;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+;; (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 ;;;;;;;;;;;;;;;;;;
 ;; cider config ;;
 ;;;;;;;;;;;;;;;;;;
-;(setq nrepl-hide-special-buffers t)
+(setq nrepl-hide-special-buffers t)
+
+;; (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+
 
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions '(auto-complete)))
@@ -64,10 +71,18 @@
 
 (setq cider-repl-history-file "/home/patz/.repl_history")
 
+(setq inferior-lisp-program "browser-repl")
 
-;; kibit
+;; for classes and methos
+(add-hook 'cider-repl-mode-hook 'subword-mode)
 
-;; kibit (https://github.com/jonase/kibit)
+;; rainbow delimiters
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+
+;;;;;;;;;;;
+;; kibit ;;
+;;;;;;;;;;;
+;;  (https://github.com/jonase/kibit) ;;
 
 ;; Teach compile the syntax of the kibit output
 (require 'compile)
@@ -88,11 +103,3 @@ Display the results in a hyperlinked *compilation* buffer."
 Display the results in a hyperlinked *compilation* buffer."
   (interactive)
   (compile (concat "lein kibit " buffer-file-name)))
-
-(setq inferior-lisp-program "browser-repl")
-
-;; for classes and methos
-(add-hook 'cider-repl-mode-hook 'subword-mode)
-
-;; rainbow delimiters
-(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)

@@ -20,6 +20,8 @@
 ;; rainbow delimiters
 (require 'rainbow-delimiters)
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
 
 
 ;; Noctilus Theme

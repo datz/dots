@@ -4,7 +4,7 @@
                                   [jonase/eastwood "0.1.4"]
                                   [cider/cider-nrepl "0.9.0-SNAPSHOT"]
                                   ]
-        :dependencies [[slamhound "1.5.1"]
+        :dependencies [[slamhound "1.5.5"]
                        [im.chit/vinyasa "0.1.8"]]
         :injections [(require 'vinyasa.inject)
                      (vinyasa.inject/inject 'clojure.core '>

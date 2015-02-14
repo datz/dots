@@ -1,3 +1,6 @@
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 (load-file "~/.emacs.conf/init.el")
 
 ;; General Auto-Complete
@@ -27,8 +30,6 @@
 ;; Noctilus Theme
 (load-theme 'noctilux t)
 
-(set-face-attribute 'default nil :font "Andale Mono-11")
-
 ;; (load-theme 'zenburn t)
 ;; elscreen
 (elscreen-start)
@@ -46,8 +47,8 @@
 
 ;; Display full pathname for files.
 (add-hook 'find-file-hooks
-        '(lambda ()
-          (setq mode-line-buffer-identification 'buffer-file-truename)))
+	'(lambda ()
+	  (setq mode-line-buffer-identification 'buffer-file-truename)))
 
 ;; For easy window scrolling up and down.
 (global-set-key "\M-n" 'scroll-up-line)
@@ -90,14 +91,14 @@
   "Run grunt test e2e"
   (interactive)
   (let* ((grunt-buffer (get-buffer-create "*grunt*"))
-        (result (call-process-shell-command "grunt test:e2e" ))
-        (output (with-current-buffer grunt-buffer (buffer-string))))
+	(result (call-process-shell-command "grunt test:e2e" ))
+	(output (with-current-buffer grunt-buffer (buffer-string))))
     (cond ((zerop result)
-           (message "Grunt completed without errors"))
-          (t
-           (message nil)
-           (split-window-vertically)
-           (set-window-buffer (next-window) grunt-buffer)))))
+	   (message "Grunt completed without errors"))
+	  (t
+	   (message nil)
+	   (split-window-vertically)
+	   (set-window-buffer (next-window) grunt-buffer)))))
 
 ;; js
 

@@ -136,9 +136,7 @@
 
 ;; coffescript
 
-(custom-set-variables
- '(coffee-tab-width 2)
- '(coffee-args-compile '("-c" "--bare")))
+
 
 (eval-after-load "coffee-mode"
   '(progn

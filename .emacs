@@ -91,14 +91,14 @@
   "Run grunt test e2e"
   (interactive)
   (let* ((grunt-buffer (get-buffer-create "*grunt*"))
-	(result (call-process-shell-command "grunt test:e2e" ))
-	(output (with-current-buffer grunt-buffer (buffer-string))))
+        (result (call-process-shell-command "grunt test:e2e" ))
+        (output (with-current-buffer grunt-buffer (buffer-string))))
     (cond ((zerop result)
-	   (message "Grunt completed without errors"))
-	  (t
-	   (message nil)
-	   (split-window-vertically)
-	   (set-window-buffer (next-window) grunt-buffer)))))
+           (message "Grunt completed without errors"))
+          (t
+           (message nil)
+           (split-window-vertically)
+           (set-window-buffer (next-window) grunt-buffer)))))
 
 ;; js
 

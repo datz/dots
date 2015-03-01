@@ -10,22 +10,30 @@
 
 (cljr-add-keybindings-with-prefix "C-c C-m")
 
+;; extra-font
+
+(require 'clojure-mode-extra-font-locking)
+
+;; ident
 (put-clojure-indent '-> 1)
 (put-clojure-indent '->> 1)
 
+;; camelCase
+
+(add-hook 'clojure-mode-hook #'subword-mode)
 
 ;; paredit
-(add-hook 'clojure-mode-hook 'paredit-mode)
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook #'paredit-mode)
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
 
 ;; yas
-(add-hook 'clojure-mode-hook 'yas-minor-mode)
+(add-hook 'clojure-mode-hook #'yas-minor-mode)
 
 ;; smartparents
 ;;(add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 
 ;; rainbow delimiters
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions '(auto-complete)))

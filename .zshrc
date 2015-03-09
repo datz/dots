@@ -1,5 +1,8 @@
 [[ $EMACS = t ]] && unsetopt zle
 
+# Check if is session is opened by ssh-logins
+[ "$SSH_CONNECTION" -a "$SSH_TTY" -eq $(tty) ] && eval $(gpg-agent --daemon) && export GPG_TTY=$(tty)
+
 autoload -Uz compinit promptinit colors insert-sudo edit-command-line
 
 compinit

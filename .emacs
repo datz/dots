@@ -1,4 +1,11 @@
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (require 'cask "~/.cask/cask.el")
+
 (cask-initialize)
 
 (load-file "~/.emacs.conf/init.el")
@@ -14,6 +21,8 @@
 (require 'multiple-cursors)
 
 (load-file "~/.emacs.conf/init_keybinding.el")
+
+(load-file "~/.emacs.conf/emacs_web.el")
 
 ;; (load-file "~/.emacs.conf/emacs_latex.el")
 
@@ -47,8 +56,8 @@
 
 ;; Display full pathname for files.
 (add-hook 'find-file-hooks
-	'(lambda ()
-	  (setq mode-line-buffer-identification 'buffer-file-truename)))
+        '(lambda ()
+          (setq mode-line-buffer-identification 'buffer-file-truename)))
 
 ;; For easy window scrolling up and down.
 (global-set-key "\M-n" 'scroll-up-line)
@@ -62,22 +71,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cider-repl-use-clojure-font-lock t)
- '(coffee-tab-width 2)
- '(column-number-mode t)
+ '(coffee-tab-width 2 t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
- '(js2-basic-offset 2)
- '(js2-bounce-indent-p t)
- '(show-paren-mode t)
- '(tool-bar-mode nil))
+ '(package-selected-packages
+   (quote
+    (csv-mode php-mode swift-mode inf-mongo coffee-mode package-build shut-up epl git commander f dash s))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Oxygen Mono" :foundry "unknown" :slant normal :weight normal :height 113 :width normal)))))
+ )
 
 (setenv "PATH" (concat (getenv "PATH") ":~/bin"))
 (setq exec-path (append exec-path '("~/bin")))

@@ -7,7 +7,7 @@
   '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 
-; Initialize all the ELPA packages (what is installed using the packages commands)
+;; Initialize all the ELPA packages (what is installed using the packages commands)
 (package-initialize)
 
 (custom-set-variables
@@ -44,8 +44,11 @@
 
 ;transparency
 (set-frame-parameter (selected-frame) 'alpha '(95 90))
-; no menu bar
+;; no menu bar
 (menu-bar-mode 0)
+
+;; no tool bar
+(tool-bar-mode 0)
 
 
 (setq backup-directory-alist
@@ -53,24 +56,19 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-(require 'expand-region)
+;; (require 'expand-region)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 
 ;; automatically clean up bad whitespace
 (setq whitespace-action '(auto-cleanup))
+
 ;; only show bad whitespace
 (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
 
 (global-whitespace-mode 1)
 
-(custom-set-variables '(coffee-tab-width 2))
-
-;; coffee mode
-(eval-after-load "coffee-mode"
-  '(progn
-     (define-key coffee-mode-map (kbd "C-j") 'coffee-newline-and-indent)))
 
 (setenv "EDITOR" "emacsclient")
 

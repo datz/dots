@@ -2,11 +2,13 @@
  :user {:global-vars {*print-length* 100}
         :plugins [[lein-kibit "0.0.8"]
                                   [jonase/eastwood "0.1.4"]
-                                  [cider/cider-nrepl "0.9.0-SNAPSHOT"]
-                                  [refactor-nrepl "1.0.5"]]
+                                  [cider/cider-nrepl "0.10.0-SNAPSHOT"]
+                                  [refactor-nrepl "1.2.0-SNAPSHOT"]]
         :dependencies [[org.clojure/tools.nrepl "0.2.10"]
                        [slamhound "1.5.5"]
-                       [im.chit/vinyasa "0.1.8"]]
+                       [im.chit/vinyasa "0.1.8"]
+                       [org.clojure/data.csv "0.1.3"]
+                       [org.clojure/data.json "0.2.6"]]
         :injections [(require 'vinyasa.inject)
                      (vinyasa.inject/inject 'clojure.core '>
                                             '[[clojure.repl doc find-doc source]

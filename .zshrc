@@ -55,4 +55,7 @@ unset GREP_OPTIONS
 
 export PATH="/home/patz/.cask/bin:$PATH"
 
-export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools:/home/patz/opt/node/bin/
+
+export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools:/home/patz/opt/node/bin/:$HOME/.gem/ruby/2.2.0/bin
+
+

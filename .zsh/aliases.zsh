@@ -1,5 +1,6 @@
 alias p="sudo pacman -S"
 alias y="yaourt -S"
+alias yy="yaourt --noconfirm -S"
 alias yupdate="yaourt -Syua --noconfirm"
 alias runing="ps aux | grep"
 alias la="ls -a"

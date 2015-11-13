@@ -56,8 +56,8 @@
 
 ;; Display full pathname for files.
 (add-hook 'find-file-hooks
-        '(lambda ()
-          (setq mode-line-buffer-identification 'buffer-file-truename)))
+          '(lambda ()
+             (setq mode-line-buffer-identification 'buffer-file-truename)))
 
 ;; For easy window scrolling up and down.
 (global-set-key "\M-n" 'scroll-up-line)
@@ -71,12 +71,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(coffee-tab-width 2 t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
  '(package-selected-packages
    (quote
-    (csv-mode php-mode swift-mode inf-mongo coffee-mode package-build shut-up epl git commander f dash s))))
+    (tide tss typescript-mode emmet-mode angular-snippets package-build shut-up epl git commander f dash s))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -97,8 +96,8 @@
   "Run grunt test e2e"
   (interactive)
   (let* ((grunt-buffer (get-buffer-create "*grunt*"))
-        (result (call-process-shell-command "grunt test:e2e" ))
-        (output (with-current-buffer grunt-buffer (buffer-string))))
+         (result (call-process-shell-command "grunt test:e2e" ))
+         (output (with-current-buffer grunt-buffer (buffer-string))))
     (cond ((zerop result)
            (message "Grunt completed without errors"))
           (t
@@ -109,7 +108,7 @@
 ;; js
 
 
-(add-to-list 'auto-mode-alist '("\\.js" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.html" . web-mode))
 
 ;; easy spell check
@@ -157,3 +156,19 @@
 (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2))) ;; indent 2 spaces.
 
 (setq emmet-move-cursor-between-quotes t) ;; move to first empty quotes
+
+(defun uniquify-all-lines-region (start end)
+  "Find duplicate lines in region START to END keeping first occurrence."
+  (interactive "*r")
+  (save-excursion
+    (let ((end (copy-marker end)))
+      (while
+          (progn
+            (goto-char start)
+            (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+        (replace-match "\\1\n\\2")))))
+
+(defun uniquify-all-lines-buffer ()
+  "Delete duplicate lines in buffer and keep first occurrence."
+  (interactive "*")
+  (uniquify-all-lines-region (point-min) (point-max)))

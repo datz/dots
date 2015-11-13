@@ -12,6 +12,8 @@ alias se="sudo emacs -nw"
 alias sf="show_file"
 alias maxram="ps aux --sort -rss"
 alias eq="emacs -Q -nw"
+alias vim="eq"
+alias sudo="sudo "
 
 ##ls, the common ones I use a lot shortened for rapid fire usage
 alias ls='ls --color -hG' #I like color

@@ -1,7 +1,7 @@
 [[ $EMACS = t ]] && unsetopt zle
 
 # Check if is session is opened by ssh-logins
-[ "$SSH_CONNECTION" -a "$SSH_TTY" -eq $(tty) ] && eval $(gpg-agent --daemon) && export GPG_TTY=$(tty)
+#[ "$SSH_CONNECTION" -a "$SSH_TTY" -eq $(tty) ] && eval $(gpg-agent --daemon) && export GPG_TTY=$(tty)
 
 autoload -Uz compinit promptinit colors insert-sudo edit-command-line
 
@@ -55,4 +55,4 @@ unset GREP_OPTIONS
 
 export PATH="/home/patz/.cask/bin:$PATH"
 
-export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools
+export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools:/home/patz/opt/node/bin/

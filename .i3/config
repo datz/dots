@@ -11,8 +11,8 @@
 
 #autostarts:
 exec volumeicon
-exec nm-applet
-exec feh --bg-scale ~/Downloads/archbluelogo.png
+exec --no-startup-id nm-applet
+exec --no-startup-id feh --bg-scale ~/Images/blackandwhitebridge.jpg
 exec guake
 
 

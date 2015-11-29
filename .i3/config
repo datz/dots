@@ -13,6 +13,7 @@
 exec volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-scale ~/Images/blackandwhitebridge.jpg
+exec --no-startup-id ~/src/scripts/battery_notif
 exec guake
 
 
@@ -53,7 +54,10 @@ bindsym $mod+e exec emacs
 
 bindsym $mod+s exec spotify
 
-# file manager
+# Screenshots
+
+bindsym Print exec ~/src/scripts/screenshot
+bindsym $mod+Print exec ~/src/scripts/screenshot_window
 
 #bindsym $mod+f exec pcmanfm
 

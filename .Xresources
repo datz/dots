@@ -1,0 +1,76 @@
+URxvt.geometry: 400x30
+URxvt.buffered: true
+URxvt.background: black
+URxvt.foreground: green
+URxvt.cursorColor: yellow
+URxvt.underlineColor: green
+!URxvt.font:xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true
+URxvt.font:     xft:bitstream vera sans mono:size=12:antialias=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:size=12:antialias=true
+
+!------------
+!True Transparency
+!------------
+!set to 32-bit for real transparency (compositing required (see xcompmgr)
+urxvt*depth:             32
+!transparent=0000 opaque=ffff
+urxvt*background: rgba:1111/1111/1111/dddd
+!urxvt*background: rgba:1111/1111/1111/0000
+
+! Apply gaussian blur with the specified radius to the transparent background. If a single number is specified, the vertical and horizontal radii are considered to be the same.
+! Setting one of the radii to 1 and the other to a large number creates interesting effects on some backgrounds. The maximum radius value is 128. An horizontal or vertical radius of 0 disables blur
+! URxvt*blurRadius:                     HxV
+
+! Fade the text by the given percentage when focus is lost
+URxvt*fading:                           30
+
+! True: inhibit writing record into the system log file utmp;  False: write record into the system log file utmp [default]
+URxvt*utmpInhibit:                      false
+
+! True: use visual bell on receipt of a bell character; option -vb.  False: no visual bell [default]
+URxvt*visualBell:                       true
+
+!------------------
+!False tranparency
+!------------------
+!URxvt.transparent: true
+!URxvt.shading: 50
+
+Urxvt.secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
+
+URxvt.urlLauncher:      /usr/bin/google-chrome-stable
+URxvt.matcher.button:   1
+
+
+
+! tabs
+URxvt.perl-ext-common:  default,tabbed
+
+
+! Use the specified colour for the scrollbar [default #B2B2B2]
+URxvt*scrollColor:                      #777777
+
+! Set scrollbar style to rxvt.
+URxvt*scrollstyle:                      plain
+
+! True: scroll to bottom when a non-special key pressed.  Special keys are those which are intercepted by rxvt for special handling andnt passed onto the shell; False: dont scroll to bottom
+URxvt*scrollTtyKeypress:                true
+
+! True: scroll with scrollback buffer when tty recieves new lines (and scrollTtyOutput is False);  False: do not scroll with scrollback buffer when tty recieves new lines
+URxvt*scrollWithBuffer:                 false
+
+! When receiving lots of lines, urxvt will only scroll once a whole screen height of lines has been read, resulting in fewer updates while still displaying every received line
+! False: specify that smooth scrolling should be used. urxvt will force a screen refresh on each new line it received
+! URxvt*jumpScroll:                     boolean
+
+! (true) When receiving lots of lines, urxvt will only scroll once in a while (around 60x/sec), resulting in fewer updates. This can result in urxvt not ever displaying some of the lines it receives
+URxvt*skipScroll:                       false
+
+! True: enable the scrollbar [default]; option -sb. False: disable the scrollbar
+URxvt*scrollBar:                        true
+
+! place the scrollbar on the right of the window
+URxvt*scrollBar_right:                  true
+
+! di5play an rxvt scrollbar with/without a trough
+URxvt*scrollBar_floating:               true

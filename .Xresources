@@ -5,8 +5,8 @@ URxvt.foreground: green
 URxvt.cursorColor: yellow
 URxvt.underlineColor: green
 !URxvt.font:xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true
-URxvt.font:     xft:bitstream vera sans mono:size=12:antialias=true
-URxvt.boldFont: xft:bitstream vera sans mono:bold:size=12:antialias=true
+URxvt.font:     xft:Monospace:size=11:antialias=true
+URxvt.boldFont: xft:Monospace:bold:size=11:antialias=true
 
 !------------
 !True Transparency
@@ -23,6 +23,9 @@ urxvt*background: rgba:1111/1111/1111/dddd
 
 ! Fade the text by the given percentage when focus is lost
 URxvt*fading:                           30
+
+! Fade to this colour, when fading is used (see fading:). The default colour is black
+URxvt*fadeColor:                        Black
 
 ! True: inhibit writing record into the system log file utmp;  False: write record into the system log file utmp [default]
 URxvt*utmpInhibit:                      false

@@ -200,8 +200,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status -c ~/.i3/i3status.conf
-        mode           hide
+        mode           dock
         workspace_buttons yes
+        position          top
 
         colors {
                background #000000

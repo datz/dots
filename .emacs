@@ -1,3 +1,4 @@
+(load-library "url-handlers")
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -56,8 +57,8 @@
 
 ;; Display full pathname for files.
 (add-hook 'find-file-hooks
-          '(lambda ()
-             (setq mode-line-buffer-identification 'buffer-file-truename)))
+	  '(lambda ()
+	     (setq mode-line-buffer-identification 'buffer-file-truename)))
 
 ;; For easy window scrolling up and down.
 (global-set-key "\M-n" 'scroll-up-line)
@@ -98,14 +99,14 @@
   "Run grunt test e2e"
   (interactive)
   (let* ((grunt-buffer (get-buffer-create "*grunt*"))
-         (result (call-process-shell-command "grunt test:e2e" ))
-         (output (with-current-buffer grunt-buffer (buffer-string))))
+	 (result (call-process-shell-command "grunt test:e2e" ))
+	 (output (with-current-buffer grunt-buffer (buffer-string))))
     (cond ((zerop result)
-           (message "Grunt completed without errors"))
-          (t
-           (message nil)
-           (split-window-vertically)
-           (set-window-buffer (next-window) grunt-buffer)))))
+	   (message "Grunt completed without errors"))
+	  (t
+	   (message nil)
+	   (split-window-vertically)
+	   (set-window-buffer (next-window) grunt-buffer)))))
 
 ;; js
 
@@ -165,10 +166,10 @@
   (save-excursion
     (let ((end (copy-marker end)))
       (while
-          (progn
-            (goto-char start)
-            (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
-        (replace-match "\\1\n\\2")))))
+	  (progn
+	    (goto-char start)
+	    (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+	(replace-match "\\1\n\\2")))))
 
 (defun uniquify-all-lines-buffer ()
   "Delete duplicate lines in buffer and keep first occurrence."

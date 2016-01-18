@@ -16,6 +16,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-scale ~/Images/blackandwhitebridge.jpg
 exec --no-startup-id ~/src/scripts/battery_notif
 exec guake
+exec xflux -l 19.451313 -g -99.1290131
 
 
 set $mod Mod4
@@ -41,6 +42,12 @@ font pango: Monospace, FontAwesome 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# no borders
+for_window [class="^.*"] border pixel 4
+
+
+for_window [class="Firebug.*"] exec "trans .70"
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -62,7 +69,7 @@ bindsym $mod+Print exec ~/src/scripts/screenshot_window
 
 #bindsym $mod+f exec pcmanfm
 
-# kill focused window
+# kill focuse window
 bindsym $mod+Shift+q kill
 
 
@@ -125,6 +132,10 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+# next prev workspace
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1

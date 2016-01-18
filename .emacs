@@ -67,8 +67,8 @@
 
 ;; Display full pathname for files.
 (add-hook 'find-file-hooks
-	  '(lambda ()
-	     (setq mode-line-buffer-identification 'buffer-file-truename)))
+          '(lambda ()
+             (setq mode-line-buffer-identification 'buffer-file-truename)))
 
 ;; For easy window scrolling up and down.
 (global-set-key "\M-n" 'scroll-up-line)
@@ -109,14 +109,14 @@
   "Run grunt test e2e"
   (interactive)
   (let* ((grunt-buffer (get-buffer-create "*grunt*"))
-	 (result (call-process-shell-command "grunt test:e2e" ))
-	 (output (with-current-buffer grunt-buffer (buffer-string))))
+         (result (call-process-shell-command "grunt test:e2e" ))
+         (output (with-current-buffer grunt-buffer (buffer-string))))
     (cond ((zerop result)
-	   (message "Grunt completed without errors"))
-	  (t
-	   (message nil)
-	   (split-window-vertically)
-	   (set-window-buffer (next-window) grunt-buffer)))))
+           (message "Grunt completed without errors"))
+          (t
+           (message nil)
+           (split-window-vertically)
+           (set-window-buffer (next-window) grunt-buffer)))))
 
 ;; js
 
@@ -176,12 +176,25 @@
   (save-excursion
     (let ((end (copy-marker end)))
       (while
-	  (progn
-	    (goto-char start)
-	    (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
-	(replace-match "\\1\n\\2")))))
+          (progn
+            (goto-char start)
+            (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+        (replace-match "\\1\n\\2")))))
 
 (defun uniquify-all-lines-buffer ()
   "Delete duplicate lines in buffer and keep first occurrence."
   (interactive "*")
   (uniquify-all-lines-region (point-min) (point-max)))
+
+
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+(defun my-paredit-nonlisp ()
+  "Turn on paredit mode for non-lisps."
+  (interactive)
+  (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+       '((lambda (endp delimiter) nil)))
+  (paredit-mode 1))

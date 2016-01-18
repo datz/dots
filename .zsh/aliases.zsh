@@ -34,11 +34,11 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
 
-alias -g L='|less' 
+alias -g L='|less'
 alias -g S='&> /dev/null &'
 
 alias -s {clj,el}="emacs -nw"
-alias -s {html,xml}="chromium"
+alias -s {html,xml}="google-chrome-stable"
 alias -s {README,md,txt}="show_file"
 
 

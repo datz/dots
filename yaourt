@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cp /etc/pacman.conf /etc/pacman.conf.old
+
+echo "[archlinuxfr]
+ SigLevel = Never
+ Server = http://repo.archlinux.fr/$arch" >> /etc/pacman.conf
+
+
+pacman -Sy

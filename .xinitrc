@@ -1,4 +1,25 @@
-xsetroot -cursor_name left_pr
-setxbmap -layout en
-#exec startfluxbox
-exec startkde
+#!/bin/sh
+#
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+    for f in /etc/X11/xinit/xinitrc.d/*; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
+
+#export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
+#exec dbus-launch --exit-with-session openbox-session
+
+#feh --bg-fill /home/patz/Desktop/1400301.png
+
+start-conky
+
+guake &
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+/usr/lib/seahorse/seahorse-ssh-askpass
+monitors
+
+exec i3 -V  >> ~/.i3log-$(date +'%F-%k-%M-%S') 2>&1

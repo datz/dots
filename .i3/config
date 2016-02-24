@@ -13,11 +13,11 @@
 exec volumeicon
 exec compton
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-scale ~/Images/blackandwhitebridge.jpg
+exec --no-startup-id feh --bg-scale ~/Images/gunter.jpg
 exec --no-startup-id ~/src/scripts/battery_notif
 exec guake
 exec xflux -l 19.451313 -g -99.1290131
-
+exec ~/bin/usb_keyboard
 
 set $mod Mod4
 

@@ -198,3 +198,7 @@
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
        '((lambda (endp delimiter) nil)))
   (paredit-mode 1))
+
+
+;; jsp ewww
+(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))

@@ -13,10 +13,10 @@
 exec volumeicon
 exec compton
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-scale ~/Images/blackandwhitebridge.jpg
+exec --no-startup-id feh --bg-scale ~/Images/gunter.jpg
 exec --no-startup-id ~/src/scripts/battery_notif
 exec xflux -l 19.451313 -g -99.1290131
-
+exec ~/bin/usb_keyboard
 
 set $mod Mod4
 
@@ -166,7 +166,7 @@ assign [class="google\\-chrome"] →  $tag3
 assign [class="Spotify"] →  $tag4
 
 # Move the current workspace to the next output
-bindsym $mod+z move workspace to output left
+bindsym $mod+z move workspace to output up
 
 bindsym $mod+c move container to output right
 
@@ -215,13 +215,14 @@ bar {
         position          top
 
         colors {
-               background #000000
+               background #292a2e
                statusline #ffffff
-               separator #666666
+               separator #292a2e
+               #666666
 
                focused_workspace #285577 #285577 #ffffff
                active_workspace  #ffffff #007fbf
-               inactive_workspace #888888 #222222
+               inactive_workspace #888888 #292a2e
                urgent_workspace #ffffff #9000000
          }
 }

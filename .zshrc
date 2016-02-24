@@ -3,7 +3,7 @@
 # Check if is session is opened by ssh-logins
 #[ "$SSH_CONNECTION" -a "$SSH_TTY" -eq $(tty) ] && eval $(gpg-agent --daemon) && export GPG_TTY=$(tty)
 
-autoload -Uz compinit promptinit colors insert-sudo edit-command-line
+autoload -Uz compinit promptinit colors insert-sudo edit-command-line zmv
 
 compinit
 promptinit
@@ -39,10 +39,7 @@ source ~/.zsh/zstyle
 
 EDITOR="emacs -nw -q"
 
-PATH=$PATH:/home/patz/.gem/ruby/2.0.0/bin:$HOME/opt/storm-0.8.2/bin
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:/home/patz/.gem/ruby/2.1.0/bin
 PATH=$PATH:/opt/storm/bin
 PATH=$HOME/bin:$PATH
 
@@ -53,9 +50,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 alias grep="/usr/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
-export PATH="/home/patz/.cask/bin:$PATH"
-
-
-export PATH=$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools:/home/patz/opt/node/bin/:$HOME/.gem/ruby/2.2.0/bin
-
-
+export PATH="/home/patz/.cask/bin:$PATH:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools:/home/patz/opt/node/bin/:$HOME/.gem/ruby/2.2.0/bin:/home/patz/.gem/ruby/2.3.0/bin"

@@ -167,7 +167,7 @@ assign [class="google\\-chrome"] →  $tag3
 assign [class="Spotify"] →  $tag4
 
 # Move the current workspace to the next output
-bindsym $mod+z move workspace to output left
+bindsym $mod+z move workspace to output up
 
 bindsym $mod+c move container to output right
 

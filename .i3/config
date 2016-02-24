@@ -216,13 +216,14 @@ bar {
         position          top
 
         colors {
-               background #000000
+               background #292a2e
                statusline #ffffff
-               separator #666666
+               separator #292a2e
+               #666666
 
                focused_workspace #285577 #285577 #ffffff
                active_workspace  #ffffff #007fbf
-               inactive_workspace #888888 #222222
+               inactive_workspace #888888 #292a2e
                urgent_workspace #ffffff #9000000
          }
 }

@@ -1,3 +1,4 @@
+alias mmv="noglob zmv -W"
 alias p="sudo pacman -S"
 alias y="yaourt -S"
 alias yy="yaourt --noconfirm -S"

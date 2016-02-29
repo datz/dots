@@ -4,15 +4,15 @@ autoload -Uz vcs_info
 setopt prompt_subst #allow function calls in prompt
 
 if [[ $UID != 0 ]]; then
-	prompt_arrow=→
+        prompt_arrow=→
 else
-	prompt_arrow=⇒
+        prompt_arrow=⇒
 fi
 
 if [[ -z "$SSH_CLIENT" ]]; then
-	prompt_host=""
+        prompt_host=""
 else
-	prompt_host=%{$fg_bold[white]%}@%{$reset_color$fg[yellow]%}$(hostname -s)
+        prompt_host=%{$fg_bold[white]%}@%{$reset_color$fg[yellow]%}$(hostname -s)
 fi
 
 common_fmt_prompt_pre="%{$fg[cyan]%}%n@%m%{$fg_bold[white]%}${prompt_host}:%{$fg_bold[magenta]%}"
@@ -30,18 +30,18 @@ zstyle ':vcs_info:*:prompt:*' get-revision 'true'
 
 function precmd  {
     if [[ -n "$UPDATE_PROMPT" || -n "$UPDATE_PROMPT_ONCE" ]]; then
-	if [[ -z $(git ls-files --other --exclude-standard -- $(git rev-parse --show-cdup 2>/dev/null) 2>/dev/null) ]] {
-		untracked=''
-	    } else {
-		untracked="%{$fg_bold[red]%}●"
-	    }
-	    common_fmt_pre="╔%{$fg[red]%}%s%{$fg[white]%}:%{$fg[yellow]%}%r%{$fg[white]%}[%{$fg_bold[green]%}%b%{$fg[white]%}:%{$fg[blue]%}%i%{$reset_color$fg[white]%}] %c%u$untracked%{$reset_color%}"
+        if [[ -z $(git ls-files --other --exclude-standard -- $(git rev-parse --show-cdup 2>/dev/null) 2>/dev/null) ]] {
+                untracked=''
+            } else {
+                untracked="%{$fg_bold[red]%}●"
+            }
+            common_fmt_pre="╔%{$fg[red]%}%s%{$fg[white]%}:%{$fg[yellow]%}%r%{$fg[white]%}[%{$fg_bold[green]%}%b%{$fg[white]%}:%{$fg[blue]%}%i%{$reset_color$fg[white]%}] %c%u$untracked%{$reset_color%}"
 
-	    zstyle ':vcs_info:*:prompt:*' actionformats "${common_fmt_pre} $fg[cyan](%a) ${common_fmt_post}"
-	    zstyle ':vcs_info:*:prompt:*' formats       "${common_fmt_pre} ${common_fmt_post}"
+            zstyle ':vcs_info:*:prompt:*' actionformats "${common_fmt_pre} $fg[cyan](%a) ${common_fmt_post}"
+            zstyle ':vcs_info:*:prompt:*' formats       "${common_fmt_pre} ${common_fmt_post}"
 
-	    vcs_info 'prompt'
-	    UPDATE_PROMPT_ONCE=
+            vcs_info 'prompt'
+            UPDATE_PROMPT_ONCE=
 fi
 }
 
@@ -51,15 +51,15 @@ slower() { UPDATE_PROMPT=1 }
 function u {
         UPDATE_PROMPT_ONCE=1
 }
- 
+
 chpwd_functions+=('u')
- 
+
 PROMPT='${vcs_info_msg_0_}'
- 
+
 setopt transient_rprompt #remove rprompt after enter
 if type test >/dev/null && acpi -b 2>/dev/null | grep 'Battery 0' >/dev/null; then
-        RPROMPT='[$(acpi -b | sed "s/.* \([0-9]\+\)%.*/\1/")%%] '"%(?.%{$fg_bold[green]%}:).%{$fg_bold[red]%}✘)%{$reset_color%}"
+        RPROMPT="%(?.%{$fg_bold[green]%}:).%{$fg_bold[red]%}(╯°□°）╯︵ ┻━┻)%{$reset_color%}"
 else
-        RPROMPT="%(?.%{$fg_bold[green]%}:).%{$fg_bold[red]%}:()%{$reset_color%}"
+        RPROMPT="%(?.%{$fg_bold[green]%}:).%{$fg_bold[red]%}(╯°□°）╯︵ ┻━┻)%{$reset_color%}"
 fi
 SPROMPT="zsh: correct %R to %r? ([Y]es/[No]/[E]dit/[A]bort) "

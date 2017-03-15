@@ -4,11 +4,13 @@ Xft.rgba:                       rgb
 Xft.hinting:                    true
 Xft.hintstyle:                  hintslight
 
+
 URxvt.depth:                    32
-URxvt.transparent:              false
+URxvt.transparent:              true
+URxvt.shading:                  20
 !URxvt.fading:                   80
 URxvt.internalBorder:           3
-URxvt.lineSpace:                0
+URxvt.lineSpace:                1
 
 URxvt.allow_bold:               false
 URxvt*font:			xft:Monospace:pixelsize=14

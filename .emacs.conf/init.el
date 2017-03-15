@@ -50,6 +50,9 @@
 ;; no tool bar
 (tool-bar-mode 0)
 
+;; show line numbers
+(global-linum-mode 1)
+
 
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -74,3 +77,6 @@
 
 
 (defun fmongo () (interactive) (inf-mongo "mongo fractal3.fractal-ware.com,fractal1.fractal-ware.com,fractal2.fractal-ware.com/fractal -u fractal  -p 5jceHqRY"))
+
+ (setq ring-bell-function (lambda ()
+                            (play-sound-file "/home/patz/.emacs.conf/smb_fireball.wav")))

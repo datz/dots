@@ -27,7 +27,7 @@
 (ac-set-trigger-key "TAB")
 (ac-set-trigger-key "<tab>")
 
-(load-file "~/.emacs.conf/emacs_clojure.el")
+;;; (load-file "~/.emacs.conf/emacs_clojure.el")
 
 (require 'multiple-cursors)
 
@@ -39,6 +39,8 @@
 
 ;; Show parenthesis mode
 (show-paren-mode 1)
+
+(smartparens-mode 1)
 
 ;; rainbow delimiters
 (require 'rainbow-delimiters)
@@ -77,18 +79,23 @@
 ;; For easier regex search/replace.
 (defalias 'qrr 'query-replace-regexp)
 
+;; easier string search/replace
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(coffee-tab-width 2)
+ '(coffee-tab-width 2 t)
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
  '(package-selected-packages
    (quote
-    (tide tss typescript-mode emmet-mode angular-snippets package-build shut-up epl git commander f dash s)
-    (html-to-markdown csv-mode php-mode swift-mode inf-mongo coffee-mode package-build shut-up epl git commander f dash s))))
+    (color-theme yaml-mode web-mode use-package sql-indent solarized-theme smex smartparens rainbow-delimiters projectile prodigy popwin pallet nyan-mode noctilux-theme magit-filenotify latex-extra idle-highlight-mode htmlize fold-this flycheck-cask expand-region exec-path-from-shell elscreen drag-stuff company clojure-mode-extra-font-locking clj-refactor ac-math ac-js2))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -202,3 +209,12 @@
 
 ;; jsp ewww
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+
+
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+(setq scss-compile-at-save nil)
+
+(add-to-list 'auto-mode-alist '("\\.sql" . sql-mode))
+
+(eval-after-load "sql"
+  (load-library "sql-indent"))

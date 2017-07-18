@@ -6,18 +6,7 @@
 (add-to-list 'package-archives
   '("marmalade" . "http://marmalade-repo.org/packages/"))
 
-
-;; Initialize all the ELPA packages (what is installed using the packages commands)
-(package-initialize)
-
-(custom-set-variables
-
-'(inhibit-startup-screen t)
-
-'(initial-scratch-message nil))
-
 ;; scroll one line at a time (less "jumpy" than defaults)
-
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
 
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
@@ -56,6 +45,7 @@
 
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
+
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
@@ -68,7 +58,8 @@
 (setq whitespace-action '(auto-cleanup))
 
 ;; only show bad whitespace
-(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
+(setq whitespace-style
+      '(trailing space-before-tab indentation empty space-after-tab))
 
 (global-whitespace-mode 1)
 
@@ -76,7 +67,6 @@
 (setenv "EDITOR" "emacsclient")
 
 
-(defun fmongo () (interactive) (inf-mongo "mongo fractal3.fractal-ware.com,fractal1.fractal-ware.com,fractal2.fractal-ware.com/fractal -u fractal  -p 5jceHqRY"))
-
- (setq ring-bell-function (lambda ()
-                            (play-sound-file "/home/patz/.emacs.conf/smb_fireball.wav")))
+(setq ring-bell-function
+      (lambda ()
+        (play-sound-file "/home/patz/.emacs.conf/smb_fireball.wav")))

@@ -54,3 +54,6 @@
 (depends-on "ac-js2")
 (depends-on "expand-region")
 (depends-on "web-mode")
+(depends-on "sql-indent")
+(depends-on "go-mode")
+(depends-on "go-autocomplete")

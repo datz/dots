@@ -218,3 +218,22 @@
 
 (eval-after-load "sql"
   (load-library "sql-indent"))
+
+
+(defun random-alnum ()
+  (let* ((alnum "abcdefghijklmnopqrstuvwxyz0123456789")
+         (i (% (abs (random)) (length alnum))))
+    (substring alnum i (1+ i))))
+
+(defun random-5-letter-string ()
+  (interactive)
+  (concat
+   (random-alnum)
+   (random-alnum)
+   (random-alnum)
+   (random-alnum)
+   (random-alnum)))
+
+
+(setenv "PATH" (concat (getenv "PATH") "/home/patz/opt/node/bin"))
+(setq exec-path (append exec-path '("/home/patz/opt/node/bin")))

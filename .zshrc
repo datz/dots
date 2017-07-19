@@ -14,16 +14,16 @@ zle -N backward-word-match
 zle -N insert-sudo insert_sudo
 zle -N edit-command-line
 
-source ~/src/dots/.zsh/aliases.zsh
-source ~/src/dots/.zsh/functions.zsh
-source ~/src/dots/.zsh/bindkeys.zsh
-source ~/src/dots/.zsh/zstyle
-source ~/src/dots/.zsh/setopts
-source ~/src/dots/.zsh/exports.zsh
+source $HOME/src/dots/.zsh/aliases.zsh
+source $HOME/src/dots/.zsh/functions.zsh
+source $HOME/src/dots/.zsh/bindkeys.zsh
+source $HOME/src/dots/.zsh/zstyle
+source $HOME/src/dots/.zsh/setopts
+source $HOME/.zsh/exports.zsh
 
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/patz/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.

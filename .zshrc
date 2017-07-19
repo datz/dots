@@ -19,6 +19,7 @@ source ~/src/dots/.zsh/functions.zsh
 source ~/src/dots/.zsh/bindkeys.zsh
 source ~/src/dots/.zsh/zstyle
 source ~/src/dots/.zsh/setopts
+source ~/src/dots/.zsh/exports.zsh
 
 
 # Path to your oh-my-zsh installation.

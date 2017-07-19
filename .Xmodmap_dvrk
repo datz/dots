@@ -1,0 +1,33 @@
+!
+! clear all
+!
+clear Shift
+clear Lock
+clear Control
+clear Mod1
+clear Mod2
+clear Mod3
+clear Mod4
+clear Mod5
+
+keysym Escape = Caps_Lock
+keysym Alt_R = Mode_switch
+keysym Caps_Lock = Control_L
+keysym Control_L = Escape
+
+add Shift = Shift_L Shift_R
+add Lock = Caps_Lock
+add Control = Control_L  Control_R
+add mod1 = Alt_L
+add mod2 = Num_Lock
+add mod4 = Super_L Super_R Hyper_L
+add mod5 = ISO_Level3_Shift Mode_switch
+
+keycode 10 = 1 exclam exclamdown
+keycode 38 = a A aacute Aacute
+keycode 40 = e E eacute Eacute
+keycode 42 = i I iacute Iacute
+keycode 39 = o O oacute Oacute
+keycode 41 = u U uacute Uacute
+keycode 46 = n N ntilde Ntilde
+keycode 34 = slash question questiondown

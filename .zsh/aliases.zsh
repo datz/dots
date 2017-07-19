@@ -39,7 +39,8 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
-
+alias -g X='|xargs'
+alias -g G='|grep'
 alias -g L='|less'
 alias -g S='&> /dev/null &'
 

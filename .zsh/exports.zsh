@@ -5,4 +5,4 @@ export EDITOR=vim
 export BROWSER="google-chrome"
 
 export GOPATH=~/src/go
-export PATH="$PATH:$HOME/bin:$GOPATH/bin"
+export PATH="$PATH:$HOME/bin:$GOPATH/bin:$HOME/opt/node/bin"

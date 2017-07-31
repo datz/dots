@@ -26,9 +26,9 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
-(dolist (k '([mouse-1] [down-mouse-1]  [double-mouse-1] [triple-mouse-1]
-             [double-mouse-2] [triple-mouse-2]
-             [down-mouse-3] [drag-mouse-3] [double-mouse-3] [triple-mouse-3]
-             [mouse-4] [down-mouse-4] [drag-mouse-4]
-             [mouse-5] [down-mouse-5] [drag-mouse-5]))
-  (global-unset-key k))
+;; (dolist (k '([mouse-1] [down-mouse-1]  [double-mouse-1] [triple-mouse-1]
+;;              [double-mouse-2] [triple-mouse-2]
+;;              [down-mouse-3] [drag-mouse-3] [double-mouse-3] [triple-mouse-3]
+;;              [mouse-4] [down-mouse-4] [drag-mouse-4]
+;;              [mouse-5] [down-mouse-5] [drag-mouse-5]))
+;;   (global-unset-key k))

@@ -17,6 +17,11 @@ alias eq="emacs -Q -nw"
 alias vim="eq"
 alias sudo="sudo "
 
+## wow! such commit
+alias such=git
+alias very=git
+alias wow='git status'
+
 ##ls, the common ones I use a lot shortened for rapid fire usage
 alias ls='ls --color -hG' #I like color
 alias l='ls -lFh'     #size,show type,human readable
@@ -34,7 +39,8 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
-
+alias -g X='|xargs'
+alias -g G='|grep'
 alias -g L='|less'
 alias -g S='&> /dev/null &'
 

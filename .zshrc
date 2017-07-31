@@ -14,11 +14,11 @@ zle -N backward-word-match
 zle -N insert-sudo insert_sudo
 zle -N edit-command-line
 
-source ~/src/dots/.zsh/aliases.zsh
-source ~/src/dots/.zsh/functions.zsh
-source ~/src/dots/.zsh/bindkeys.zsh
-source ~/src/dots/.zsh/zstyle
-source ~/src/dots/.zsh/setopts
+source $HOME/src/dots/.zsh/aliases.zsh
+source $HOME/src/dots/.zsh/functions.zsh
+source $HOME/src/dots/.zsh/bindkeys.zsh
+source $HOME/src/dots/.zsh/zstyle
+source $HOME/src/dots/.zsh/setopts
 source $HOME/.zsh/exports.zsh
 
 

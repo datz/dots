@@ -2,7 +2,7 @@
 exec compton
 exec --no-startup-id conky -c ~/.conky/Sparkly\ Conky/Sparkly
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-scale ~/Images/photo5089221996344092616.jpg
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id ~/src/scripts/battery_notif
 
 #exec xflux -l 19.451313 -g -99.1290131
@@ -20,7 +20,7 @@ set $tag4 "4: "
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: Monospace, FontAwesome 9
+font pango: DejaVu Sans Mono, FontAwesome 9
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -153,8 +153,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # web to web
 assign [class="Chromium"] → $tag3
-assign [class="google\\-chrome"] →  $tag3
-assign [class="Spotify"] →  $tag4
+assign [class="google-chrome"] → $tag3
+assign [class="Spotify"] → 4
 
 # Move the current workspace to the next output
 bindsym $mod+z move workspace to output up
@@ -170,7 +170,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # gaps
-
 gaps inner 10
 gaps outer 1
 smart_gaps on
@@ -209,18 +208,17 @@ bar {
         mode			dock
         workspace_buttons       yes
         position                top
-        height			19
+        height			20
 
         colors {
-               background #292a2e
-               statusline #ffffff
+               background #2f343f
+               statusline #292a2e
                separator #292a2e
-               #666666
-
-               focused_workspace #285577 #285577 #ffffff
-               active_workspace  #ffffff #007fbf
-               inactive_workspace #888888 #292a2e
-               urgent_workspace #ffffff #9000000
+               #                  border  backg   font
+               focused_workspace  #2f343f #2f343f #ffffff
+               active_workspace   #2f343f #2f343f #ffffff
+               inactive_workspace #2f343f #2f343f #666666
+               urgent_workspace   #ffffff #8cb3b8
          }
 }
 
@@ -229,10 +227,10 @@ bindsym $mod+semicolon exec i3-msg border pixel 3
 bindsym --release $mod+semicolon exec i3-msg border pixel 0
 
 
-# Colors
-client.focused #007fbf #007fbf #ffffff
-client.unfocused #666666 #666666 #ffffff
-client.urgent #aa0000 #990000 #ffffff
+# Colors          border   backg   font
+client.focused    #2f343f  #2f343f #ffffff
+client.unfocused  #2f343f  #2f343f #666666
+client.urgent     #aa0000  #990000 #ffffff
 
 
 # startup

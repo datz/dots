@@ -18,6 +18,7 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
+
 (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
 
 

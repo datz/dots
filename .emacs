@@ -10,6 +10,7 @@
 (cask-initialize)
 
 (load-file "~/.emacs.conf/init.el")
+(load-file "~/.emacs.conf/tide.el")
 
 ;;; yasnippet
 ;;; should be loaded before auto complete so that they can work together
@@ -85,7 +86,7 @@
  '(initial-scratch-message nil)
  '(package-selected-packages
    (quote
-    (sass-mode cider-eval-sexp-fu monokai-theme pdf-tools go-autocomplete go-mode color-theme yaml-mode web-mode use-package sql-indent solarized-theme smex smartparens rainbow-delimiters projectile prodigy popwin pallet nyan-mode noctilux-theme magit-filenotify latex-extra idle-highlight-mode htmlize fold-this flycheck-cask expand-region exec-path-from-shell elscreen drag-stuff company clojure-mode-extra-font-locking clj-refactor ac-math ac-js2))))
+    (sass-mode cider-eval-sexp-fu monokai-theme tide pdf-tools go-autocomplete go-mode color-theme yaml-mode web-mode use-package sql-indent solarized-theme smex smartparens rainbow-delimiters projectile prodigy popwin pallet nyan-mode noctilux-theme magit-filenotify latex-extra idle-highlight-mode htmlize fold-this flycheck-cask expand-region exec-path-from-shell elscreen drag-stuff company clojure-mode-extra-font-locking clj-refactor ac-math ac-js2))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

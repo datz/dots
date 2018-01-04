@@ -2,10 +2,11 @@
 exec compton
 exec --no-startup-id conky -c ~/.conky/Sparkly\ Conky/Sparkly
 exec --no-startup-id nm-applet
+exec --no-startup-id solaar
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id ~/src/scripts/battery_notif
 
-#exec xflux -l 19.451313 -g -99.1290131
+exec xflux -l 19.451313 -g -99.1290131
 exec ~/bin/usb_keyboard
 
 set $mod Mod4
@@ -36,6 +37,8 @@ for_window [class="^.*"] border pixel 2
 
 
 for_window [class="Firebug.*"] exec "trans .70"
+
+for_window [class="Nitrogen"] floating enable; resize shrink width 10000px; resize grow width 400px; resize shrink height 10000px; resize grow height 400px;
 
 bindsym $mod+i exec i3-input
 bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark name: '
@@ -171,7 +174,7 @@ bindsym $mod+Shift+r restart
 
 # gaps
 gaps inner 10
-gaps outer 1
+gaps outer 10
 smart_gaps on
 smart_borders on
 
@@ -223,12 +226,14 @@ bar {
 }
 
 # border on, see where focus is
-bindsym $mod+semicolon exec i3-msg border pixel 3
+bindsym $mod+semicolon exec i3-msg border pixel 5
 bindsym --release $mod+semicolon exec i3-msg border pixel 0
 
 
+
+
 # Colors          border   backg   font
-client.focused    #2f343f  #2f343f #ffffff
+client.focused    #4675d2  #4675d2 #ffffff
 client.unfocused  #2f343f  #2f343f #666666
 client.urgent     #aa0000  #990000 #ffffff
 

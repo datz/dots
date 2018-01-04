@@ -20,6 +20,7 @@ source $HOME/src/dots/.zsh/bindkeys.zsh
 source $HOME/src/dots/.zsh/zstyle
 source $HOME/src/dots/.zsh/setopts
 source $HOME/.zsh/exports.zsh
+source $HOME/.ng-completion.zsh
 
 
 # Path to your oh-my-zsh installation.

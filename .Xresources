@@ -1,9 +1,19 @@
+URxvt.perl-ext-common:          default,matcher,bell-command,clipboard
+
+URxvt*urgentOnBell: true
+URxvt*visualBell: true
+
+URxvt*iso14755: false
+URxvt*iso14755_52: false
+
+URxvt*keysym.Shift-Control-C: perl:clipboard:copy
+URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+
 Xft.dpi:                        96
 Xft.antialias:                  true
 Xft.rgba:                       rgb
 Xft.hinting:                    true
 Xft.hintstyle:                  hintslight
-
 
 URxvt.depth:                    32
 URxvt.transparent:              true
@@ -11,18 +21,18 @@ URxvt.shading:                  20
 URxvt.internalBorder:           3
 URxvt.lineSpace:                1
 
+URxvt.bell-command: aplay /home/patz/src/dots/smb3_inventory_open_close.wav
+
 ! URxvt.allow_bold:               false
-URxvt.font:                     xft:Inconsolata:pixelsize=16,xft:Droid Sans Mono:pixelsize=16,xft:DejaVu Sans Mono:pixelsize=16,xft:Droid Sans Fallback:pixelsize=16,xft:FreeSans:pixelsize=16,xft:FreeSans:pixelsize=16
-URxvt.boldFont:                xft:Inconsolata:pixelsize=16,xft:Droid Sans Mono:pixelsize=16,xft:DejaVu Sans Mono:pixelsize=16,xft:Droid Sans Fallback:pixelsize=16,xft:FreeSans:pixelsize=16,xft:FrpeeSans:pixelsize=16
-URxvt.italicFont:               xft:Inconsolata:pixelsize=16,xft:Droid Sans Mono:pixelsize=16,xft:DejaVu Sans Mono:pixelsize=16,xft:Droid Sans Fallback:pixelsize=16,xft:FreeSans:pixelsize=16,xft:FreeSans:pixelsize=16
-URxvt.boldItalicFont:           xft:Inconsolata:pixelsize=16,xft:Droid Sans Mono:pixelsize=16,xft:DejaVu Sans Mono:pixelsize=16,xft:Droid Sans Fallback:pixelsize=16,xft:FreeSans:pixelsize=16,xft:FreeSans:pixelsize=16
+URxvt.font:                     xft:Inconsolata:pixelsize=14,xft:Droid Sans Mono:pixelsize=14,xft:DejaVu Sans Mono:pixelsize=14,xft:Droid Sans Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FreeSans:pixelsize=14
+URxvt.boldFont:                xft:Inconsolata:pixelsize=14,xft:Droid Sans Mono:pixelsize=14,xft:DejaVu Sans Mono:pixelsize=14,xft:Droid Sans Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FrpeeSans:pixelsize=14
+URxvt.italicFont:               xft:Inconsolata:pixelsize=14,xft:Droid Sans Mono:pixelsize=14,xft:DejaVu Sans Mono:pixelsize=14,xft:Droid Sans Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FreeSans:pixelsize=14
+URxvt.boldItalicFont:           xft:Inconsolata:pixelsize=14,xft:Droid Sans Mono:pixelsize=14,xft:DejaVu Sans Mono:pixelsize=14,xft:Droid Sans Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt*letterSpace:              -1
 
 URxvt.scrollStyle:              rxvt
 URxvt.scrollBar:                false
 
-! URxvt.perl-ext-common:  default,tabbed
-URxvt.perl-ext-common:          default,matcher
 URxvt.matcher.button:           1
 URxvt.urlLauncher:              firefox
 

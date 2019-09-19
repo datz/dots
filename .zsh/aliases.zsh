@@ -41,6 +41,7 @@ alias .....='cd ../../../../'
 alias -g X='|xargs'
 alias -g G='|grep'
 alias -g L='|less'
+alias -g J='|jq'
 alias -g S='&> /dev/null &'
 
 alias -s {clj,el}="emacs -nw"
@@ -49,3 +50,6 @@ alias -s {README,md,txt}="show_file"
 
 
 alias skype='xhost +local: && sudo -u skype /usr/bin/skype skype --disable-cleanlooks'
+
+# kitty kitty
+alias icat="kitty +kitten icat"

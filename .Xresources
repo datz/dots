@@ -1,86 +1,67 @@
-URxvt.perl-ext-common:          default,matcher,bell-command,clipboard
+Xcursor.size: 64
+
+! https://github.com/majutsushi/urxvt-font-size
+URxvt.perl-ext: default,matcher,bell-command,clipboard,font-size
 
 URxvt*urgentOnBell: true
-URxvt*visualBell: true
+URxvt*visualBell:   false
+URxvt*mapAlert:     true 
 
-URxvt*iso14755: false
+URxvt*iso14755:    false
 URxvt*iso14755_52: false
 
 URxvt*keysym.Shift-Control-C: perl:clipboard:copy
 URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 
-Xft.dpi:                        96
-Xft.antialias:                  true
-Xft.rgba:                       rgb
-Xft.hinting:                    true
-Xft.hintstyle:                  hintslight
+ Xft.dpi:      160 2
+Xft.antialias: true
+Xft.rgba:      rgb
+Xft.hinting:   true
+Xft.hintstyle: hintslight
 
 URxvt.depth:                    32
-URxvt.transparent:              true
 URxvt.shading:                  20
 URxvt.internalBorder:           3
 URxvt.lineSpace:                1
 
-URxvt.bell-command: aplay /home/patz/src/dots/smb3_inventory_open_close.wav
+URxvt.bell-command: aplay /home/ptz/src/dots/smb3_inventory_open_close.wav
 
-! URxvt.allow_bold:               false
-URxvt.font:                     xft:Inconsolata:pixelsize=14,xft:Droid Sans Mono:pixelsize=14,xft:DejaVu Sans Mono:pixelsize=14,xft:Droid Sans Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FreeSans:pixelsize=14
-URxvt.boldFont:                xft:Inconsolata:pixelsize=14,xft:Droid Sans Mono:pixelsize=14,xft:DejaVu Sans Mono:pixelsize=14,xft:Droid Sans Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FrpeeSans:pixelsize=14
-URxvt.italicFont:               xft:Inconsolata:pixelsize=14,xft:Droid Sans Mono:pixelsize=14,xft:DejaVu Sans Mono:pixelsize=14,xft:Droid Sans Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FreeSans:pixelsize=14
-URxvt.boldItalicFont:           xft:Inconsolata:pixelsize=14,xft:Droid Sans Mono:pixelsize=14,xft:DejaVu Sans Mono:pixelsize=14,xft:Droid Sans Fallback:pixelsize=14,xft:FreeSans:pixelsize=14,xft:FreeSans:pixelsize=14
-URxvt*letterSpace:              -1
+URxvt.font:		       xft:UbuntuMono Nerd Font:size=11
+URxvt.boldFont		   xft:UbuntuMono Nerd Font:size=11
+URxvt.italicFont     xft:UbuntuMono Nerd Font:size=11
+URxvt.boldItalicFont xft:UbuntuMono Nerd Font:size=11
 
-URxvt.scrollStyle:              rxvt
-URxvt.scrollBar:                false
+URxvt*letterSpace: 1
 
-URxvt.matcher.button:           1
-URxvt.urlLauncher:              firefox
+URxvt.scrollStyle: rxvt
+URxvt.scrollBar:   false
 
-URxvt.cursorBlink:              true
-URxvt.cursorColor:              #657b83
-URxvt.cursorUnderline:          false
+URxvt.matcher.button: 1
+URxvt.url-launcher:   firefox
 
-URxvt.pointerBlank:             true
+URxvt.cursorBlink:     true
+URxvt.cursorColor:     #657b83
+URxvt.cursorUnderline: false
 
-*pointerColorBackground:        #586e75
-*pointerColorForeground:        #93a1a1
-*fading:                        20
-! *fadeColor:                     #002b36
+URxvt.pointerBlank: true
 
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
+*fading:                 20
 
-! special
-*.foreground:   #888a8c
-*.background:   #1e2021
-*.cursorColor:  #888a8c
-
-! black
-*.color0:       #515151
-*.color8:       #707172
-
-! red
-*.color1:       #bf6382
-*.color9:       #eaaec2
-
-! green
-*.color2:       #65a446
-*.color10:      #aed49b
-
-! yellow
-*.color3:       #ad8a43
-*.color11:      #d4c3a0
-
-! blue
-*.color4:       #6b85c2
-*.color12:      #afc4e9
-
-! magenta
-*.color5:       #9e6bb8
-*.color13:      #d2b1e2
-
-! cyan
-*.color6:       #5c9d88
-*.color14:      #a4d0c1
-
-! white
-*.color7:       #919191
-*.color15:      #d0d0d0
+rofi.location:          0
+rofi.color-enabled:     true
+!                       'background', 'border'
+rofi.color-window:      argb:dc111111, argb:dc111111
+rofi.theme:             ~/.cache/wal/colors-rofi-dark.rasi
+rofi.separator-style:   dash
+rofi.fullscreen:        false
+rofi.padding:           130
+rofi.hide-scrollbar:    true
+rofi.line-margin:       5
+rofi.fake-transparency: false
+rofi.yoffset:           0
+rofi.xoffset:           0
+rofi.width:             1366
+rofi.opacity:           90
+rofi.font: SourceCodePro-Regular 12

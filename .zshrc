@@ -14,15 +14,15 @@ zle -N backward-word-match
 zle -N insert-sudo insert_sudo
 zle -N edit-command-line
 
+(cat ~/.cache/wal/sequences &)
+
+
 source $HOME/src/dots/.zsh/aliases.zsh
 source $HOME/src/dots/.zsh/functions.zsh
 source $HOME/src/dots/.zsh/bindkeys.zsh
 source $HOME/src/dots/.zsh/zstyle
 source $HOME/src/dots/.zsh/setopts
 source $HOME/.zsh/exports.zsh
-source $HOME/.ng-completion.zsh
-
-
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -30,7 +30,10 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bira"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+#25POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰─ "
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -95,8 +98,6 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-export SSH_KEY_PATH="~/.ssh/id_ed25519"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -107,15 +108,15 @@ export SSH_KEY_PATH="~/.ssh/id_ed25519"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ### Added by Zplugin's installer
-source '/home/patz/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+#source '/home/patz/.zplugin/bin/zplugin.zsh'
+#autoload -Uz _zplugin
+#(( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
 
-
-source $HOME/.zsh/zplugin.zsh
+# source $HOME/.zsh/zplugin.zsh
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh

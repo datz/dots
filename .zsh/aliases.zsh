@@ -4,9 +4,6 @@ alias y="yay -S"
 alias yy="yay --noconfirm -S"
 alias yupdate="yay -Syua --noconfirm"
 alias runing="ps aux | grep"
-alias la="ls -a"
-alias fptz="ssh fptz"
-alias kvimclj="ps aux | grep -v grep | grep vimclojure | awk '{print \$2}' | xargs kill"
 alias u2d="yay -Syua --noconfirm"
 alias e="emacs -nw"
 alias se="sudo emacs -nw"
@@ -15,13 +12,14 @@ alias maxram="ps aux --sort -rss"
 alias eq="emacs -Q -nw"
 alias vim="eq"
 alias sudo="sudo "
+alias up="nmcli conn up"
+alias down="nmcli conn down"
 
 ## wow! such commit
 alias such=git
 alias very=git
 alias wow='git status'
 
-##ls, the common ones I use a lot shortened for rapid fire usage
 alias ls='ls --color -hG' #I like color
 alias l='ls -lFh'     #size,show type,human readable
 alias ll='ls -alhG'
@@ -53,3 +51,5 @@ alias skype='xhost +local: && sudo -u skype /usr/bin/skype skype --disable-clean
 
 # kitty kitty
 alias icat="kitty +kitten icat"
+
+alias -g MEWTWO=~/src/mewtwo

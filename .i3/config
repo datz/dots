@@ -69,6 +69,7 @@ for_window [class="^.*"] border pixel 0
 for_window [class="Firebug.*"] exec "trans .70"
 
 for_window [class="Nitrogen"] floating enable; resize shrink width 10000px; resize grow width 400px; resize shrink height 10000px; resize grow height 400px;
+for_window [class="Gnome-calculator"] floating enable;
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -154,7 +155,7 @@ bindsym F11 fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+t layout tabbed
+bindsym $mod+Shift+w layout tabbed
 bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
@@ -201,7 +202,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # web to web
-assign [class="Chromium"] → $tag3
+# assign [class="Chromium"] → $tag3
 assign [class="firefox"] → $tag3
 assign [class="Spotify"] → 4
 
@@ -231,7 +232,7 @@ gaps outer 10
 #smart_borders on
 #smart_borders no_gaps
 
-border_radius 20
+# border_radius 20  rounded gaps
 
 # border on, see where focus is
 bindsym $mod+semicolon exec i3-msg border pixel 15

@@ -294,19 +294,21 @@ bindsym $mod+r mode "resize"
 
 
 set_from_resource $focused        i3wm.color3  #f0f0f0
-set_from_resource $unfocused      i3wm.color8  #f0f0f0
-set_from_resource $urgent         i3wm.color7  #f0f0f0
+set_from_resource $focused_text   i3wm.color8  #f0f0f0
 set_from_resource $placeholder    i3wm.color11 #f0f0f0
 set_from_resource $text           i3wm.color7  #f0f0f0
-set_from_resource $unfocus_text   i3wm.color0  #f0f0f0
+set_from_resource $unfocus_text   i3wm.color6  #f0f0f0
+set_from_resource $unfocused      i3wm.color8  #f0f0f0
+set_from_resource $unfocused_in   i3wm.color6  #f0f0f0
+set_from_resource $urgent         i3wm.color7  #f0f0f0
 set_from_resource $urgent_text    i3wm.color7  #f0f0f0
 
 
 # class                 border             backgr.           text           indicator         child_border
-client.focused          $focused           $focused          $text          $focused          $focused
-client.focused_inactive $unfocused         $unfocused        $unfocus_text  $unfocused        $unfocused
+client.focused          $focused           $focused          $focused_text  $focused          $focused
+client.focused_inactive $unfocused         $unfocused_in     $focused_text  $unfocused        $unfocused
 client.unfocused        $unfocused         $unfocused        $unfocus_text  $unfocused        $unfocused
-client.urgent           $urgent            $urgent           $urgent_text   $urgent           $urgent
+client.urgent           $urgent            $urgent           $focused_text  $urgent           $urgent
 client.placeholder      $placeholder       $placeholder      $text          $placeholder      $focused
 
 client.background       $focused

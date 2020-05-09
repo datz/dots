@@ -47,21 +47,6 @@ URxvt.pointerBlank: true
 
 *pointerColorBackground: #586e75
 *pointerColorForeground: #93a1a1
-*fading:                 20
+*fading:                 35
 
-rofi.location:          0
-rofi.color-enabled:     true
-!                       'background', 'border'
-rofi.color-window:      argb:dc111111, argb:dc111111
-rofi.theme:             ~/.cache/wal/colors-rofi-dark.rasi
-rofi.separator-style:   dash
-rofi.fullscreen:        false
-rofi.padding:           130
-rofi.hide-scrollbar:    true
-rofi.line-margin:       5
-rofi.fake-transparency: false
-rofi.yoffset:           0
-rofi.xoffset:           0
-rofi.width:             1366
-rofi.opacity:           90
-rofi.font: SourceCodePro-Regular 12
+#include "/home/ptz/src/dots/nord"

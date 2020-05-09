@@ -16,7 +16,7 @@ function is_enabled()
 
 for i in $TARGETS; do
     if [ $(echo $CONNECTIONS | jq ".$i.enabled") = '"yes"' ]; then
-       echo " $i"
+        echo " $i"
        exit;
     fi
 done

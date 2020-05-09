@@ -110,7 +110,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
 #bindsym $mod+d exec rofi -show window
-set $execute exec rofi -show drun -eh 2 -padding 16
+set $execute exec rofi -show combi -combi-modi "drun#window" -modi combi -eh 2 -padding 16
 bindsym $mod+d $execute
 
 bindsym $mod+Shift+x [urgent=latest] focus

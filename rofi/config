@@ -1,4 +1,3 @@
-# rofi.combi-modi:    window,drun,ssh
-# rofi.font:          hack 25
-# rofi.modi:          combi
-# rofi.theme:         solarized.rasi
+rofi.combi-modi:    "combi,window,ssh,drun"
+rofi.modi           combi
+rofi.theme:         nord.rasi

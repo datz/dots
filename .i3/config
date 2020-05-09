@@ -177,6 +177,10 @@ bindsym $mod+bracketright workspace next
 bindsym $mod+Shift+bracketleft move container to output right
 bindsym $mod+Shift+bracketright move container to output left
 
+# move whole workspace
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
+
 # switch to workspace
 bindsym $mod+1 workspace $tag1
 bindsym $mod+2 workspace $tag2
